@@ -47,9 +47,10 @@
     <link href="http://yoursite.com/2016/07/13/blog1/"/>
     <id>http://yoursite.com/2016/07/13/blog1/</id>
     <published>2016-07-13T13:41:44.000Z</published>
-    <updated>2016-07-30T09:59:34.272Z</updated>
+    <updated>2016-07-30T13:54:53.017Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
+    <content type="html"><![CDATA[<p>盒模型的科普及一点小探索<br><a id="more"></a></p>
+<h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
 <blockquote>
 <p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。 </p>
 </blockquote>
@@ -69,7 +70,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;什么是盒模型？&quot;&gt;&lt;a href=&quot;#什么是盒模型？&quot; class=&quot;headerlink&quot; title=&quot;什么是盒模型？&quot;&gt;&lt;/a&gt;什么是盒模型？&lt;/h3&gt;&lt;p&gt;根据&lt;a href=&quot;https://developer.mozilla.org/zh-CN/doc
+      &lt;p&gt;盒模型的科普及一点小探索&lt;br&gt;
     
     </summary>
     

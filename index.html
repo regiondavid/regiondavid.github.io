@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="0" class="js-avatar">
+			<img lazy-src="null/img/avatar.png" class="js-avatar">
 			
 		</a>
 
@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -96,18 +96,22 @@
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
+								<a class="github" target="_blank" href="http://github.com/regiondavid" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/qi-ge-ming-zhe-yao-nan" title="zhihu">zhihu</a>
 					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+								<a class="mail" target="_blank" href="/uestczjw@gmail.com" title="mail">mail</a>
+					        
+								<a class="google" target="_blank" href="/uestczjw@gmail.com" title="google">google</a>
 					        
 						</div>
 					</nav>
@@ -164,7 +168,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="0" class="js-avatar">
+					<img lazy-src="null/img/avatar.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -180,19 +184,23 @@
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
+						<a class="github" target="_blank" href="http://github.com/regiondavid" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/qi-ge-ming-zhe-yao-nan" title="zhihu">zhihu</a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+						<a class="mail" target="_blank" href="/uestczjw@gmail.com" title="mail">mail</a>
+			        
+						<a class="google" target="_blank" href="/uestczjw@gmail.com" title="google">google</a>
 			        
 				</div>
 			</nav>
@@ -289,23 +297,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
-<blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。 </p>
-</blockquote>
-<p>可以看出盒模型就像它的名字那样，指的就是一个矩形盒子，但是这个盒子有外边距、内边距、边框和内容区域。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_boxmodel.gif" alt="盒模型"></p>
-<p>从图可以看出，我们平时所定义的 width 和 height 都是对应的内容区域，但是当我们在布局的时候，则是依照盒模型的尺寸去进行布局。所以在最后计算的时候：<code>盒模型的宽度 = margin 的宽度 + padding 的宽度 + border 的宽度 + 内容区域的宽度</code>。<br>似乎将 padding 和 border 也计算在宽度里不大符合我们常人的思维，IE 也是这么想的。所以在 IE 下和其他浏览器下计算的尺寸是不一样的。对此，css3 提出了 box-sizing 这个属性。box-sizing 有两个可选值，一个是默认的 content-box，另一个就是 border-box。当把 box-sizing 设置为 content-box 的时候，计算尺寸就把所有的都加起来；当设置为 border-box 时，就类似IE的计算方法，将 padding 和 border 算在 width 和 height 里。掌握这些基础对页面的布局有着非常好的帮助。</p>
-<h3 id="一点有趣的探索"><a href="#一点有趣的探索" class="headerlink" title="一点有趣的探索"></a>一点有趣的探索</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">	#div1&#123;</div><div class="line">		width:500px;</div><div class="line">			height: 300px;</div><div class="line">		background-color: green;</div><div class="line">	&#125;</div><div class="line">	#div2&#123;</div><div class="line">		width:300px;</div><div class="line">			height: 100px;</div><div class="line">		background-color: blue;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这是最初的样子<img src="http://i4.piimg.com/4851/50f5caa366cd86c5.png" alt="test1"><br>当我把css稍作修改<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>结果变成了这个样子。。。<br><img src="http://i2.piimg.com/4851/aeeee223f73c2a76.png" alt="test2"><br><img src="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg" alt="什么鬼">，div2咋还变长了？<br>于是我开始了探索(<del>瞎折腾</del>)<br>首先在div中添加几个字，看看content区域有没有变，内容区域果然正常<img src="http://i2.piimg.com/4851/86e535e23ba2bb32.png" alt="test3"><br>可以很明显对比看到内容区域向下移动了50px的距离，但是为什么内容的上方仍然是蓝色呢？<br>还记得我们开头的话吗？</p>
-<blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。</p>
-</blockquote>
-<p>而这里渲染的背景颜色就是基于盒模型去渲染的，它会把padding部分和content部分都去渲染上背景色。<br>那么问题又来了，如果再设置margin属性，背景色会不会也渲染上呢？<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>渲染出来的结果竟然是<img src="http://i2.piimg.com/4851/e5299204e93b1362.png" alt="test4"><br>结果div2的背景色不仅没有变化，div1上边竟然还多出一块空白的？！<br><img src="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg" alt="WTF"></p>
-<p>这他喵的是咋回事？</p>
-<p>预知后事如何，且听下回分解</p>
-
+        <p>盒模型的科普及一点小探索<br>
       
     </div>
     
@@ -318,6 +310,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/13/blog1/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -364,7 +360,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		root: /
 	}
 </script>
