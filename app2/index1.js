@@ -1,19 +1,19 @@
 $(function($){
-	$(document).keydown(function(event) {
-		var e = event||window.event;
-		var k = e.keyCode||e.which;
-		var currentPage = $(".current").eq(0);
-		if (k == 38) {
-			console.log("up");
-			// document.getElementsByClassName("container")[0].style.transform = "translateY(-100%)";
-			lastPage(currentPage);
-		}
-		if (k == 40) {
-			console.log("down");
-			// document.getElementsByClassName("container")[0].style.transform = "translateY(-100%)";
-			nextPage(currentPage);
-		}
-	});
+	// $(document).keydown(function(event) {
+	// 	var e = event||window.event;
+	// 	var k = e.keyCode||e.which;
+	// 	var currentPage = $(".current").eq(0);
+	// 	if (k == 38) {
+	// 		console.log("up");
+	// 		// document.getElementsByClassName("container")[0].style.transform = "translateY(-100%)";
+	// 		lastPage(currentPage);
+	// 	}
+	// 	if (k == 40) {
+	// 		console.log("down");
+	// 		// document.getElementsByClassName("container")[0].style.transform = "translateY(-100%)";
+	// 		nextPage(currentPage);
+	// 	}
+	// });
 	
 
 	$('.container').eq(0).swipeUp(function(){nextPage($('.current')[0]);});
