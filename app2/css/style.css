@@ -1,0 +1,84 @@
+*{
+	margin: 0 0;
+	padding: 0 0;
+}
+body{
+	overflow: hidden;
+}
+.box{
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	/*margin-top: 100px;*/
+	position: absolute;
+}
+.container{
+	backface-visibility: hidden;
+	height: 100%;
+	width: 100%;
+	-webkit-transform: translateY(0%);
+	transform: translateY(0%);
+	position: absolute;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.page{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.page1{
+	background: url(../images/page1.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.page2{
+	background: url(../images/page2.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.page3{
+	background: url(../images/page3.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.page4{
+	background: url(../images/page4.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.page2Content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.contentTop{
+	margin-top: 380px;
+}
+.mainContent{
+	margin: 33px 100px;
+}
+.borderDouble{
+	height: 9px;
+	width: 150px;
+	display: block;
+	border-top: 2px solid #F9ABCD;
+	border-bottom: 2px solid #F9ABCD;
+}
+.contentTop p{
+	font-family: "Microsoft YaHei";
+	font-size: 30px;
+	color: #0767E3;
+	margin-bottom: 10px;
+}
+.mainContent h5{
+	color: #0767E3;
+	font-family: "苹方";
+	font-size: 26px;
+	line-height: 48px;
+}
+.mainContent p{
+	font-family: "Adobe 黑体 Std";
+	font-size: 26px;
+	color: #303030;
+	line-height: 45px;
+}
