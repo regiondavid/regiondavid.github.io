@@ -1,4 +1,5 @@
 $(function($){
+	//页面切换
 	$(document).keydown(function(event) {
 		var e = event||window.event;
 		var k = e.keyCode||e.which;
@@ -18,23 +19,27 @@ $(function($){
 
 	$('.container').eq(0).swipeUp(function(){nextPage($('.current')[0]);});
 	$('.container').eq(0).swipeDown(function(){lastPage($('.current')[0]);});
-	// $("#select1").click(function() {
-	// });
-	$('#select1').on('click', function() {
-		console.log("23333");
-		$('.container').eq(0).css('transform','translateY(0%)');
-		// event.preventDefault();
-		/* Act on the event */
+	
+	//标签页的切换
+	$('.technology').eq(0).tap(function() {
+		$('.art').eq(0).removeClass('choosed');
+		$(this).addClass('choosed');
+		$('.list1').css('display','none');
+		$('.list2').css('display','flex');
 	});
-	$('#select2').click(function() {
-		$(".container").eq(0).css("transform","translateY(-100%)");
+	$('.art').eq(0).tap(function() {
+		$('.technology').eq(0).removeClass('choosed');
+		$(this).addClass('choosed');
+		$('.list2').css('display','none');
+		$('.list1').css('display','flex');
 	});
-	$("#select3").click(function() {
-		$(".container").eq(0).css("transform","translateY(-200%)");
+	//模态框的控制
+	$('.column1 > .items').tap(function(){
+		$('.modal').eq(0).css('display','block');
 	});
-	$("#select4").click(function() {
-		$(".container").eq(0).css("transform","translateY(-300%)");
-	});
+	$('.close').eq(0).tap(function(){
+		$('.modal').eq(0).css('display','none');
+	})
 })
 function initPageClass(){
 	// var page = $('.page');
