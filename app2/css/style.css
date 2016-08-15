@@ -107,6 +107,7 @@ li{
 	width: 177px;
 	height: 48px;
 	background-color: #fff;
+	border-radius: 7%;
 }
 .tab p{
 	color: #56A1E8;
@@ -233,7 +234,7 @@ li{
 	background-color: #fff;
 	line-height: 60px;
 	font-size: 24px;
-	border-radius: 10%;
+	border-radius: 7%;
 }
 .chooseHead button a{
 	color: #67C5DF;
