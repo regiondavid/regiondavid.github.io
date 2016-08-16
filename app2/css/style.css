@@ -66,26 +66,26 @@ a:visited{
 }
 .borderDouble{
 	height: 10px;
-	width: 150px;
+	width: 180px;
 	display: block;
 	border-top: 3px solid #F9ABCD;
 	border-bottom: 3px solid #F9ABCD;
 }
 .contentTop p{
 	font-family: "微软雅黑";
-	font-size: 30px;
+	font-size: 1.8rem;
 	color: #0767E3;
 	margin-bottom: 10px;
 }
 .mainContent h5{
 	color: #0767E3;
 	font-family: "苹方";
-	font-size: 26px;
+	font-size: 1.6rem;
 	line-height: 48px;
 }
 .mainContent p{
 	font-family: "苹方";
-	font-size: 26px;
+	font-size: 1.6rem;
 	color: #303030;
 	line-height: 43px;
 }
@@ -111,7 +111,7 @@ li{
 }
 .tab p{
 	color: #56A1E8;
-	font-size: 24px;
+	font-size: 1.3rem;
 	font-family: "苹方";
 	line-height: 48px;
 	text-align: center;
@@ -155,7 +155,7 @@ li{
 }
 .items p{
 	font-family: "苹方";
-	font-size: 24px;
+	font-size: 1.5rem;
 	padding-top: 145px;
 	margin-left: -20px;
 }
@@ -198,11 +198,12 @@ li{
 .show > p {
 	text-align: center;
 	font-family: "苹方";
-	font-size: 26px;
+	font-size: 1.6rem;
 	line-height: 40px;
 }
 .show > p:nth-child(3){
 	color: #0767E3;
+	margin-top: 10px;
 	margin-bottom: 38px;
 }
 /*模态框*/
@@ -233,7 +234,7 @@ li{
 	height: 60px;
 	background-color: #fff;
 	line-height: 60px;
-	font-size: 24px;
+	font-size: 1.5rem;
 	border-radius: 7%;
 }
 .chooseHead button a{
@@ -255,11 +256,11 @@ li{
 	font-family: "苹方"；
 }
 .itemContent h4{
-	font-size: 24px;
+	font-size: 1.4rem;
 	font-weight: bold;
 	line-height: 40px;
 }
 .itemContent p{
-	font-size: 24px;
+	font-size: 1.4rem;
 	line-height: 40px;
 }
