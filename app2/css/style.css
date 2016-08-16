@@ -245,7 +245,7 @@ li{
 	width: 80px;
 	height: 80px;
 	margin-bottom: 34px;
-	background:  url(../images/title.png) -5px -13px no-repeat;
+	/*background:  url(../images/title.png) -5px -13px no-repeat;*/
 }
 .itemContent{
 	width: 645px;
