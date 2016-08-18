@@ -24,12 +24,16 @@ $(function($){
 	$('.technology').eq(0).tap(function() {
 		$('.art').eq(0).removeClass('choosed');
 		$(this).addClass('choosed');
+		$('.show > p').eq(0).empty();
+		$('.show > p').eq(0).append('让技术宅找到归属，将擅长转变为能力');
 		$('.list1').css('display','none');
 		$('.list2').css('display','flex');
 	});
 	$('.art').eq(0).tap(function() {
 		$('.technology').eq(0).removeClass('choosed');
 		$(this).addClass('choosed');
+		$('.show > p').eq(0).empty();
+		$('.show > p').eq(0).append('让大学生找到兴趣，释放野蛮生长的创意');
 		$('.list2').css('display','none');
 		$('.list1').css('display','flex');
 	});
@@ -40,6 +44,194 @@ $(function($){
 	$('.close').eq(0).tap(function(){
 		$('.modal').eq(0).css('display','none');
 	})
+
+	//模态框内logo的切换
+	//list1
+	$('.items').eq(1).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-300px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('热爱阅读和写作，关心时事，有一定文学功底。');
+	});
+	$('.items').eq(2).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-642px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('精通手绘鼠绘板绘都可以，最好附有作品集。');
+	});
+	$('.items').eq(3).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-92px 0px');
+		$('.itemContent > p').empty();
+		// $('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('1.熟练运用Premiere（Eduis/Vegas亦可）、After Effect、Audition等常用视频、音频制作软件，了解Photoshop、Illustrator的简单使用；');
+		$('.itemContent > p').eq(1).append('2.具有很好的美术功底和较强的影视包装能力；理解剪辑概念，对不同类型的影片由剪辑经验；');
+		$('.itemContent > p').eq(2).append('3.良好的审美感、镜头节奏感和音乐感；');
+		$('.itemContent > p').eq(3).append('4.较强的创新能力，有一定的视频剪辑、包装作品。');
+		$('.itemContent > p').eq(4).append('1.能够使用3D MAX、Cinema 4D、Maya中任意一款三维软件制作片头动画；');
+		$('.itemContent > p').eq(5).append('2.熟练使用Photoshop、Illustrator，能够制作原创的MG动画；');
+		$('.itemContent > p').eq(6).append('3.熟悉微电影的整体后期流程，有利用达芬奇调色经历。');
+		$('.itemContent > p').eq(7).append('4.熟悉视频前期拍摄、收音流程。');
+	});
+	$('.items').eq(4).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-412px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('熟悉项目流程，有两个以上项目经验。');
+	});
+	$('.items').eq(5).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-190px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('熟悉项目流程，有两个以上项目经验。');
+	});
+	$('.items').eq(6).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-520px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('精通PS,ALLD,FL等设计软件，最好附有作品集。');
+	});
+	$('.items').eq(7).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-755px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > p').eq(0).append('有耐心和责任心，富有创意和活力。');
+	});
+	//list2
+	$('.items').eq(8).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-20px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('基于浏览器创作的画家');
+	});
+	$('.items').eq(9).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-361px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('将自己的创意运行在移动端');
+	});
+	$('.items').eq(10).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-130px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('享受处理数据的乐趣');
+	});
+	$('.items').eq(11).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-455px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('受人尊重的艺术家');
+	});
+	$('.items').eq(12).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-250px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('Linux与命令行的死忠粉');
+	});
+	$('.items').eq(13).tap(function(){
+		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-560px 0px','backgroundImage':'url(./images/items2.png)'});
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('招新说明：');
+		$('.itemContent > h4').eq(1).append('做什么：');
+		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
+		$('.itemContent > p').eq(4).append('带领程序猿各种嗨');
+	});
+	//音乐播放设置
+	// $('#myAudio').tap(function(){
+	// 	console.log("tap");
+	// 	if ($(this).paused == false) {
+	// 		$(this).play();
+	// 		console.log("start play");
+	// 	} else {
+	// 		$(this).pause();
+	// 		console.log("pause");
+	// 	}
+	// })
+	var audio = document.getElementById('myAudio');
+	$('.music').eq(0).tap(function(){
+	console.log(audio.paused);
+		if (audio.paused == false) {
+				audio.pause();
+				audio.paused = true;
+				console.log("start play");
+			} else {
+				audio.play();
+				audio.paused = false;
+				console.log("pause");
+			}
+	})
+
+	//微信分享
+	var imgUrl = "图片地址";
+    var lineLink = "https://regiondavid.github.io/app2/index.html";
+    var descContent = '蔚蓝招新';
+    var shareTitle = '蔚蓝-招新';
+    var appid = '';
+
+    function shareFriend() {
+        WeixinJSBridge.invoke('sendAppMessage',{
+            "appid": appid,
+            "img_url": imgUrl,
+            "img_width": "200",
+            "img_height": "200",
+            "link": lineLink,
+            "desc": descContent,
+            "title": shareTitle
+        }, function(res) {
+            //_report('send_msg', res.err_msg);
+        })
+    }
+    function shareTimeline() {
+        WeixinJSBridge.invoke('shareTimeline',{
+            "img_url": imgUrl,
+            "img_width": "200",
+            "img_height": "200",
+            "link": lineLink,
+            "desc": descContent,
+            "title": shareTitle
+        }, function(res) {
+               //_report('timeline', res.err_msg);
+        });
+    }
+    function shareWeibo() {
+        WeixinJSBridge.invoke('shareWeibo',{
+            "content": descContent,
+            "url": lineLink,
+        }, function(res) {
+            //_report('weibo', res.err_msg);
+        });
+    }
+    // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            shareFriend();
+        });
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            shareTimeline();
+        });
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function(argv){
+            shareWeibo();
+        });
+    }, false);
+		
 })
 function initPageClass(){
 	// var page = $('.page');

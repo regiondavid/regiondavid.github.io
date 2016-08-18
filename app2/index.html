@@ -3,13 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<mata name="viewport" content="width=device-width,initial-scale=1">
-	<title>wechat-test</title>
+	<title>蔚蓝招新</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
+	<div class="share">
+		<img src="./images/share.jpg" alt="share">
+	</div>
+		<audio src="./李宗盛 - 鬼迷心窍.mp3" loop="loop" autoplay="autoplay" id="myAudio"></audio>
 	<div class="box">
 		<div class="container" id="container">
-			<div class="page1 page current"></div>
+			<div class="page1 page current">
+				<div class="music"></div>
+				<p class="support">技术支持：蔚蓝星辰·视线</p>
+			</div>
 			<div class="page2 page">
 				<div class="page2Content">
 					<div class="contentTop">
@@ -84,28 +91,28 @@
 				<div class="modal">
 					<div class="close"></div>
 					<div class="chooseHead">
-						<div class="items">
-							<img src="./images/title.png" alt="items">
-						</div>
+						<span class="items"></span>
 						<button><a href="http://www.baidu.com">立即报名</a></button>
 					</div>
 					<div class="itemContent">
 						<h4>要求：</h4>
-						<p>1.熟练运用Premiere（Eduis/Vegas亦可）、After Effect、Audition等常用视频、音频制作软件，了解Photoshop、Illustrator的简单使用</p>
-						<p>2.具有很好的美术功底和较强的影视包装能力；理解剪辑概念，对不同类型的影片由剪辑经验；</p>
-						<p>3.良好的审美感、镜头节奏感和音乐感；</p>
-						<p>4.较强的创新能力，有一定的视频剪辑、包装作品。</p>
+						<p>1.有一定的摄影基础，能够合理构图，在不同条件下合理使用摄像机的各类数；</p>
+						<p>2.了解各类镜头语言，拍摄手法，有一定的视觉审美；</p>
+						<p>3.有团队合作意识，能够承担团队中的不同角色。</p>
+						<p></p>
 					</div>
 					<div class="itemContent">
 						<h4>加分项：</h4>
-						<p>1.能够使用3D MAX、Cinema 4D、Maya中任意一款三维软件制作片头动画；</p>
-						<p>2.熟练使用Photoshop、Illustrator，能够制作原创的MG动画；</p>
-						<p>3.熟悉微电影的整体后期流程，有利用达芬奇调色经历；</p>
-						<p>4.熟悉视频前期拍摄、收音流程。</p>
+						<p>1.熟悉外景及室内拍摄标准流程，熟悉常用的摄像设备操作、使用及日常维护；</p>
+						<p>2.擅长分镜脚本的编写，制定拍摄计划并带领创作团队进行摄影工作；</p>
+						<p>3.有微电影、采访等视频拍摄经验及相关作品；</p>
+						<p>4.了解简单的灯光布置以及布景能力，能够应对各类复杂的拍摄环境。</p>
 					</div>
 				</div>
 			</div>
-			<div class="page4 page"></div>
+			<div class="page4 page">
+				<p class="support">技术支持：蔚蓝星辰·视线</p>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -113,6 +120,7 @@
 			event.preventDefault();}, false);
 	</script>
 	<script src="./js/zepto.min.js"></script>
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script src="./js/index1.js"></script>
 </body>
 </html>

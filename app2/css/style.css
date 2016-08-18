@@ -61,37 +61,36 @@ a:visited{
 	margin-top: 255px;
 }
 .mainContent{
-	width: 765px;
+	width: 547px;
 	margin: 33px 100px;
 }
 .borderDouble{
 	height: 10px;
-	width: 195px;
+	width: 170px;
 	display: block;
 	border-top: 3px solid #F9ABCD;
 	border-bottom: 3px solid #F9ABCD;
 }
 .contentTop p{
 	font-family: "微软雅黑";
-	font-size: 40px;
+	font-size: 1.8rem;
 	color: #0767E3;
 	margin-bottom: 10px;
 }
 .mainContent h5{
 	color: #0767E3;
 	font-family: "苹方";
-	font-size: 1.9rem;
+	font-size: 1.6rem;
 	line-height: 48px;
 }
 .mainContent p{
 	font-family: "苹方";
-	font-size: 1.9rem;
+	font-size: 1.6rem;
 	color: #303030;
-	line-height: 55px;
+	line-height: 43px;
 }
 li{
 	list-style-image: url(../images/list.jpg);
-	margin-bottom: 20px;
 }
 /*page3*/
 .tabList{
@@ -182,19 +181,19 @@ li{
 	background: url(../images/design.png) -373px -410px no-repeat;
 }
 .list2 .column1:nth-child(1) .items:nth-child(2){
-	background: url(../images/design.png) 0 -200px no-repeat;
+	background: url(../images/tech.png) 0 -200px no-repeat;
 }
 .list2 .column1:nth-child(2) .items:nth-child(1){
-	background: url(../images/design.png) -186px 0 no-repeat;
+	background: url(../images/tech.png) -186px 0 no-repeat;
 }
 .list2 .column1:nth-child(2) .items:nth-child(2){
-	background: url(../images/design.png) -186px -200px no-repeat;
+	background: url(../images/tech.png) -186px -200px no-repeat;
 }
 .list2 .column1:nth-child(3) .items:nth-child(1){
-	background: url(../images/design.png) -373px 0 no-repeat;
+	background: url(../images/tech.png) -373px 0 no-repeat;
 }
 .list2 .column1:nth-child(3) .items:nth-child(2){
-	background: url(../images/design.png) -373px -200px no-repeat;
+	background: url(../images/tech.png) -373px -200px no-repeat;
 }
 .show > p {
 	text-align: center;
@@ -246,7 +245,7 @@ li{
 	width: 80px;
 	height: 80px;
 	margin-bottom: 34px;
-	/*background:  url(../images/title.png) -5px -13px no-repeat;*/
+	background:  url(../images/items1.png) 0px 0px no-repeat;
 }
 .itemContent{
 	width: 645px;
@@ -264,4 +263,21 @@ li{
 .itemContent p{
 	font-size: 1.4rem;
 	line-height: 40px;
+}
+.music{
+	width: 50px;
+	height: 50px;
+	background-color: #FB0000;
+	display: absolute;
+	/*float: left;*/
+}
+.support{
+	font-size: 26px;
+	color: #6A6A6A;
+	text-align: right;
+	padding-top: 125%;
+	margin-right: 100px;
+}
+.share{
+	display: none;
 }
