@@ -111,7 +111,7 @@ li{
 }
 .tab p{
 	color: #56A1E8;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	font-family: "苹方";
 	line-height: 48px;
 	text-align: center;
@@ -232,14 +232,14 @@ li{
 .chooseHead button{
 	width: 196px;
 	height: 60px;
-	background-color: #fff;
-	line-height: 60px;
-	font-size: 1.5rem;
 	border-radius: 7%;
+	background-color: #fff;
 }
 .chooseHead button a{
+	line-height: 60px;
+	font-size: 1.5rem;
 	color: #67C5DF;
-	font-family: "苹方"；
+	font-family: "苹方";
 }
 .chooseHead .items{
 	width: 80px;
@@ -252,17 +252,17 @@ li{
 	color: #fff;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 45px;
+	margin-bottom: 65px;
 	font-family: "苹方"；
 }
 .itemContent h4{
-	font-size: 1.4rem;
+	font-size: 2.3rem;
 	font-weight: bold;
-	line-height: 40px;
+	line-height: 80px;
 }
 .itemContent p{
-	font-size: 1.4rem;
-	line-height: 40px;
+	font-size: 2rem;
+	line-height: 60px;
 }
 /*.music{
 	width: 50px;
@@ -275,8 +275,8 @@ li{
 	color: #6A6A6A;
 	text-align: right;
 	position: absolute;
-	bottom: 0;
-	left: 40%;
+	bottom: 110px;
+	left: 43%;
 }
 .share{
 	display: none;
