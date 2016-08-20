@@ -61,36 +61,37 @@ a:visited{
 	margin-top: 255px;
 }
 .mainContent{
-	width: 547px;
+	width: 625px;
 	margin: 33px 100px;
 }
 .borderDouble{
 	height: 10px;
-	width: 170px;
+	width: 220px;
 	display: block;
 	border-top: 3px solid #F9ABCD;
 	border-bottom: 3px solid #F9ABCD;
 }
 .contentTop p{
 	font-family: "微软雅黑";
-	font-size: 1.8rem;
+	font-size: 2.3rem;
 	color: #0767E3;
 	margin-bottom: 10px;
 }
 .mainContent h5{
 	color: #0767E3;
 	font-family: "苹方";
-	font-size: 1.6rem;
-	line-height: 48px;
+	font-size: 1.9rem;
+	line-height: 50px;
 }
 .mainContent p{
 	font-family: "苹方";
-	font-size: 1.6rem;
+	font-size: 1.7rem;
 	color: #303030;
-	line-height: 43px;
+	line-height: 50px;
 }
 li{
 	list-style-image: url(../images/list.jpg);
+	margin-bottom: 30px;
 }
 /*page3*/
 .tabList{
@@ -252,17 +253,17 @@ li{
 	color: #fff;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 	font-family: "苹方"；
 }
 .itemContent h4{
-	font-size: 1.9rem;
+	font-size: 2.3rem;
 	font-weight: bold;
-	line-height: 50px;
+	line-height: 65px;
 }
 .itemContent p{
-	font-size: 1.7rem;
-	line-height: 47px;
+	font-size: 1.9rem;
+	line-height: 55px;
 }
 /*.music{
 	width: 50px;
