@@ -66,14 +66,14 @@ a:visited{
 }
 .borderDouble{
 	height: 10px;
-	width: 220px;
+	width: 300px;
 	display: block;
 	border-top: 3px solid #F9ABCD;
 	border-bottom: 3px solid #F9ABCD;
 }
 .contentTop p{
 	font-family: "微软雅黑";
-	font-size: 2.3rem;
+	font-size: 3rem;
 	color: #0767E3;
 	margin-bottom: 10px;
 }
