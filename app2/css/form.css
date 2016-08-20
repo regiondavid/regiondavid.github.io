@@ -18,7 +18,7 @@ body{
 }
 .borderDouble{
 	height: 10px;
-	width: 160px;
+	width: 150px;
 	display: block;
 	border-top: 3px solid #F9ABCD;
 	border-bottom: 3px solid #F9ABCD;
