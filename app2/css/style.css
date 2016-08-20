@@ -264,19 +264,19 @@ li{
 	font-size: 1.4rem;
 	line-height: 40px;
 }
-.music{
+/*.music{
 	width: 50px;
 	height: 50px;
 	background-color: #FB0000;
 	display: absolute;
-	/*float: left;*/
-}
+}*/
 .support{
 	font-size: 26px;
 	color: #6A6A6A;
 	text-align: right;
-	padding-top: 125%;
-	margin-right: 100px;
+	position: absolute;
+	bottom: 0;
+	left: 40%;
 }
 .share{
 	display: none;

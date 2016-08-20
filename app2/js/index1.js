@@ -47,22 +47,43 @@ $(function($){
 
 	//模态框内logo的切换
 	//list1
+	$('.items').eq(0).tap(function(){
+		$('.chooseHead .items').eq(0).css('backgroundPosition','0px 0px');
+		$('.itemContent > p').empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
+		$('.itemContent > h4').eq(1).append('加分项');
+		$('.itemContent > p').eq(0).append('1.有一定的摄影基础，能够合理构图，在不同条件下合理使用摄像机的各类数；');
+		$('.itemContent > p').eq(1).append('2.2.了解各类镜头语言，拍摄手法，有一定的视觉审美；');
+		$('.itemContent > p').eq(2).append('3.有团队合作意识，能够承担团队中的不同角色。');
+		$('.itemContent > p').eq(4).append('1.熟悉外景及室内拍摄标准流程，熟悉常用的摄像设备操作、使用及日常维护；');
+		$('.itemContent > p').eq(5).append('2.擅长分镜脚本的编写，制定拍摄计划并带领创作团队进行摄影工作；');
+		$('.itemContent > p').eq(6).append('3.有微电影、采访等视频拍摄经验及相关作品；');
+		$('.itemContent > p').eq(7).append('4.了解简单的灯光布置以及布景能力，能够应对各类复杂的拍摄环境。');;
+		$('.chooseHead a').eq(0).attr('href', 'paishe.html');
+	});
 	$('.items').eq(1).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-300px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('热爱阅读和写作，关心时事，有一定文学功底。');
+		$('.chooseHead a').eq(0).attr('href', 'wenan.html');
 	});
 	$('.items').eq(2).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-642px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('精通手绘鼠绘板绘都可以，最好附有作品集。');
+		$('.chooseHead a').eq(0).attr('href', 'chahua.html');
 	});
 	$('.items').eq(3).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-92px 0px');
 		$('.itemContent > p').empty();
-		// $('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
+		$('.itemContent > h4').eq(1).append('加分项');
 		$('.itemContent > p').eq(0).append('1.熟练运用Premiere（Eduis/Vegas亦可）、After Effect、Audition等常用视频、音频制作软件，了解Photoshop、Illustrator的简单使用；');
 		$('.itemContent > p').eq(1).append('2.具有很好的美术功底和较强的影视包装能力；理解剪辑概念，对不同类型的影片由剪辑经验；');
 		$('.itemContent > p').eq(2).append('3.良好的审美感、镜头节奏感和音乐感；');
@@ -71,30 +92,39 @@ $(function($){
 		$('.itemContent > p').eq(5).append('2.熟练使用Photoshop、Illustrator，能够制作原创的MG动画；');
 		$('.itemContent > p').eq(6).append('3.熟悉微电影的整体后期流程，有利用达芬奇调色经历。');
 		$('.itemContent > p').eq(7).append('4.熟悉视频前期拍摄、收音流程。');
+		$('.chooseHead a').eq(0).attr('href', 'houqi.html');
 	});
 	$('.items').eq(4).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-412px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('熟悉项目流程，有两个以上项目经验。');
+		$('.chooseHead a').eq(0).attr('href', 'yunying.html');
 	});
 	$('.items').eq(5).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-190px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('熟悉项目流程，有两个以上项目经验。');
+		$('.chooseHead a').eq(0).attr('href', 'chanpin.html');
 	});
 	$('.items').eq(6).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-520px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('精通PS,ALLD,FL等设计软件，最好附有作品集。');
+		$('.chooseHead a').eq(0).attr('href', 'pingmian.html');
 	});
 	$('.items').eq(7).tap(function(){
 		$('.chooseHead .items').eq(0).css('backgroundPosition','-755px 0px');
 		$('.itemContent > p').empty();
-		$('.itemContent > h4').eq(1).empty();
+		$('.itemContent > h4').empty();
+		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > p').eq(0).append('有耐心和责任心，富有创意和活力。');
+		$('.chooseHead a').eq(0).attr('href', 'xiaobai.html');
 	});
 	//list2
 	$('.items').eq(8).tap(function(){
@@ -105,6 +135,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('基于浏览器创作的画家');
+		$('.chooseHead a').eq(0).attr('href', 'fe.html');
 	});
 	$('.items').eq(9).tap(function(){
 		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-361px 0px','backgroundImage':'url(./images/items2.png)'});
@@ -114,6 +145,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('将自己的创意运行在移动端');
+		$('.chooseHead a').eq(0).attr('href', 'android.html');
 	});
 	$('.items').eq(10).tap(function(){
 		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-130px 0px','backgroundImage':'url(./images/items2.png)'});
@@ -123,6 +155,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('享受处理数据的乐趣');
+		$('.chooseHead a').eq(0).attr('href', 'houtai.html');
 	});
 	$('.items').eq(11).tap(function(){
 		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-455px 0px','backgroundImage':'url(./images/items2.png)'});
@@ -132,6 +165,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('受人尊重的艺术家');
+		$('.chooseHead a').eq(0).attr('href', 'design.html');
 	});
 	$('.items').eq(12).tap(function(){
 		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-250px 0px','backgroundImage':'url(./images/items2.png)'});
@@ -141,6 +175,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('Linux与命令行的死忠粉');
+		$('.chooseHead a').eq(0).attr('href', 'sa.html');
 	});
 	$('.items').eq(13).tap(function(){
 		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-560px 0px','backgroundImage':'url(./images/items2.png)'});
@@ -150,6 +185,7 @@ $(function($){
 		$('.itemContent > h4').eq(1).append('做什么：');
 		$('.itemContent > p').eq(0).append('和能力相比,我们更看重兴趣，自学能力和责任感');
 		$('.itemContent > p').eq(4).append('带领程序猿各种嗨');
+		$('.chooseHead a').eq(0).attr('href', 'cehua.html');
 	});
 	//音乐播放设置
 	// $('#myAudio').tap(function(){
@@ -178,7 +214,7 @@ $(function($){
 
 	//微信分享
 	var imgUrl = "图片地址";
-    var lineLink = "https://regiondavid.github.io/app2/index.html";
+    var lineLink = "";
     var descContent = '蔚蓝招新';
     var shareTitle = '蔚蓝-招新';
     var appid = '';
@@ -231,7 +267,9 @@ $(function($){
             shareWeibo();
         });
     }, false);
-		
+	
+	//根据选择职位进行跳转链接的更换
+
 })
 function initPageClass(){
 	// var page = $('.page');
