@@ -245,24 +245,24 @@ li{
 	width: 80px;
 	height: 80px;
 	margin-bottom: 34px;
-	background:  url(../images/items1.png) 0px 0px no-repeat;
+	background:  url(../images/items1.png) -20px 0px no-repeat;
 }
 .itemContent{
 	width: 645px;
 	color: #fff;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 65px;
+	margin-bottom: 30px;
 	font-family: "苹方"；
 }
 .itemContent h4{
-	font-size: 2.3rem;
+	font-size: 1.8rem;
 	font-weight: bold;
-	line-height: 80px;
+	line-height: 40px;
 }
 .itemContent p{
-	font-size: 2rem;
-	line-height: 60px;
+	font-size: 1.5rem;
+	line-height: 50px;
 }
 /*.music{
 	width: 50px;
