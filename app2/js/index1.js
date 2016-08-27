@@ -271,9 +271,9 @@ $(function($){
  	wx.config({
 	    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 	    appId: 'wxe9121b636db7c039',
-	    timestamp: "1472309147", 
+	    timestamp: "14722209147", 
 	    nonceStr: "weilan", 
-	    signature: "2901893c6e409f99ed5133b688bd50c391b3661f",
+	    signature: "29018939f99ed5133b688bd50c391b3661f",
 	   	jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 	});
 
@@ -348,7 +348,7 @@ $(function($){
 		});
 	});
 	wx.error(function(res) {
-		alert("hahahha");
+		// alert("hahahha");
 	});
 
 })

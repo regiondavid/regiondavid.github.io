@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>报名-SA</title>
+	<title>报名-安卓</title>
 	<mata name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/form.css">
 </head>
@@ -15,7 +15,7 @@
 		<div class="forms">
 			<form action="" method="post">
 				<div class="formItem">
-					<input type="text" name="name">
+					<input type="text" name="name" required="required">
 				</div>
 				<div class="formItem">
 					<input type="text" name="college">
@@ -24,21 +24,24 @@
 					<input type="text" name="grade">
 				</div>
 				<div class="formItem">
-					<input type="text" name="tel">
+					<input type="text" name="tel" id="item1" required="required">
 				</div>
 				<div class="formItem">
-					<input type="text" name="qq">
+					<input type="text" name="qq" id="item2" required="required">
 				</div>
 				<div class="formItem" id="sa">
 
 				</div>
 				<div class="formItem">
-					<textarea name="advan"></textarea>
+					<textarea name="advan" required="required"></textarea>
 				</div>
+				<input type="hidden" name="zhiwei" value="sa">
+				<div class="error"></div>
 				<button type="submit">提交</button>
 				{% csrf_token %}
 			</form>
 		</div>
 	</div>
+	<script src="./js/form.js"></script>
 </body>
 </html>
