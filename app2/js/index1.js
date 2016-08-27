@@ -348,7 +348,7 @@ $(function($){
 		});
 	});
 	wx.error(function(res) {
-		// alert("hahahha");
+		alert("hahahha");
 	});
 
 })
