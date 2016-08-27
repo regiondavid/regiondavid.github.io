@@ -13,29 +13,30 @@
 			<span class="borderDouble"></span>
 		</div>
 		<div class="forms">
-			<form action="" name="">
+			<form action="" method="post">
 				<div class="formItem">
-					<input type="text">
+					<input type="text" name="name">
 				</div>
 				<div class="formItem">
-					<input type="text">
+					<input type="text" name="college">
 				</div>
 				<div class="formItem">
-					<input type="text">
+					<input type="text" name="grade">
 				</div>
 				<div class="formItem">
-					<input type="text">
+					<input type="text" name="tel">
 				</div>
 				<div class="formItem">
-					<input type="text">
+					<input type="text" name="qq">
 				</div>
 				<div class="formItem" id="fe">
 
 				</div>
 				<div class="formItem">
-					<textarea></textarea>
+					<textarea name="advan"></textarea>
 				</div>
 				<button type="submit">提交</button>
+				{% csrf_token %}
 			</form>
 		</div>
 	</div>

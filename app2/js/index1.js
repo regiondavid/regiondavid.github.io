@@ -48,13 +48,13 @@ $(function($){
 	//模态框内logo的切换
 	//list1
 	$('.items').eq(0).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'0px 0px','backgroundImage':'url(./images/items1.png)'});		
-$('.itemContent > p').empty();
+		$('.chooseHead .items').eq(0).css('backgroundPosition','0px 0px');
+		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
 		$('.itemContent > h4').eq(1).append('加分项');
 		$('.itemContent > p').eq(0).append('1.有一定的摄影基础，能够合理构图，在不同条件下合理使用摄像机的各类数；');
-		$('.itemContent > p').eq(1).append('2.了解各类镜头语言，拍摄手法，有一定的视觉审美；');
+		$('.itemContent > p').eq(1).append('2.2.了解各类镜头语言，拍摄手法，有一定的视觉审美；');
 		$('.itemContent > p').eq(2).append('3.有团队合作意识，能够承担团队中的不同角色。');
 		$('.itemContent > p').eq(4).append('1.熟悉外景及室内拍摄标准流程，熟悉常用的摄像设备操作、使用及日常维护；');
 		$('.itemContent > p').eq(5).append('2.擅长分镜脚本的编写，制定拍摄计划并带领创作团队进行摄影工作；');
@@ -63,7 +63,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'paishe.html');
 	});
 	$('.items').eq(1).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-300px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-300px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -71,7 +71,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'wenan.html');
 	});
 	$('.items').eq(2).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-642px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-642px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -79,7 +79,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'chahua.html');
 	});
 	$('.items').eq(3).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-92px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-92px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -95,7 +95,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'houqi.html');
 	});
 	$('.items').eq(4).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-412px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-412px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -103,7 +103,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'yunying.html');
 	});
 	$('.items').eq(5).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-190px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-190px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -111,7 +111,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'chanpin.html');
 	});
 	$('.items').eq(6).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-520px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-520px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -119,7 +119,7 @@ $('.itemContent > p').empty();
 		$('.chooseHead a').eq(0).attr('href', 'pingmian.html');
 	});
 	$('.items').eq(7).tap(function(){
-		$('.chooseHead .items').eq(0).css({'backgroundPosition':'-755px 0px','backgroundImage':'url(./images/items1.png)'});
+		$('.chooseHead .items').eq(0).css('backgroundPosition','-755px 0px');
 		$('.itemContent > p').empty();
 		$('.itemContent > h4').empty();
 		$('.itemContent > h4').eq(0).append('要求');
@@ -213,62 +213,87 @@ $('.itemContent > p').empty();
 	})
 
 	//微信分享
-	var imgUrl = "图片地址";
-    var lineLink = "";
-    var descContent = '蔚蓝招新';
-    var shareTitle = '蔚蓝-招新';
-    var appid = '';
+	// var imgUrl = "图片地址";
+ //    var lineLink = "";
+ //    var descContent = '蔚蓝招新';
+ //    var shareTitle = '蔚蓝-招新';
+ //    var appid = '';
 
-    function shareFriend() {
-        WeixinJSBridge.invoke('sendAppMessage',{
-            "appid": appid,
-            "img_url": imgUrl,
-            "img_width": "200",
-            "img_height": "200",
-            "link": lineLink,
-            "desc": descContent,
-            "title": shareTitle
-        }, function(res) {
-            //_report('send_msg', res.err_msg);
-        })
-    }
-    function shareTimeline() {
-        WeixinJSBridge.invoke('shareTimeline',{
-            "img_url": imgUrl,
-            "img_width": "200",
-            "img_height": "200",
-            "link": lineLink,
-            "desc": descContent,
-            "title": shareTitle
-        }, function(res) {
-               //_report('timeline', res.err_msg);
-        });
-    }
-    function shareWeibo() {
-        WeixinJSBridge.invoke('shareWeibo',{
-            "content": descContent,
-            "url": lineLink,
-        }, function(res) {
-            //_report('weibo', res.err_msg);
-        });
-    }
-    // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function(argv){
-            shareFriend();
-        });
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function(argv){
-            shareTimeline();
-        });
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function(argv){
-            shareWeibo();
-        });
-    }, false);
-	
-	//根据选择职位进行跳转链接的更换
+ //    function shareFriend() {
+ //        WeixinJSBridge.invoke('sendAppMessage',{
+ //            "appid": appid,
+ //            "img_url": imgUrl,
+ //            "img_width": "200",
+ //            "img_height": "200",
+ //            "link": lineLink,
+ //            "desc": descContent,
+ //            "title": shareTitle
+ //        }, function(res) {
+ //            //_report('send_msg', res.err_msg);
+ //        })
+ //    }
+ //    function shareTimeline() {
+ //        WeixinJSBridge.invoke('shareTimeline',{
+ //            "img_url": imgUrl,
+ //            "img_width": "200",
+ //            "img_height": "200",
+ //            "link": lineLink,
+ //            "desc": descContent,
+ //            "title": shareTitle
+ //        }, function(res) {
+ //               //_report('timeline', res.err_msg);
+ //        });
+ //    }
+ //    function shareWeibo() {
+ //        WeixinJSBridge.invoke('shareWeibo',{
+ //            "content": descContent,
+ //            "url": lineLink,
+ //        }, function(res) {
+ //            //_report('weibo', res.err_msg);
+ //        });
+ //    }
+ //    // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+ //    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+ //        // 发送给好友
+ //        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+ //            shareFriend();
+ //        });
+ //        // 分享到朋友圈
+ //        WeixinJSBridge.on('menu:share:timeline', function(argv){
+ //            shareTimeline();
+ //        });
+ //        // 分享到微博
+ //        WeixinJSBridge.on('menu:share:weibo', function(argv){
+ //            shareWeibo();
+ //        });
+ //    }, false);
+	wx.onMenuShareTimeline({
+	    title: '蔚蓝-招新', // 分享标题
+	    link: '', // 分享链接
+	    imgUrl: '../images/share.jpg', // 分享图标
+	    success: function () { 
+	        // 用户确认分享后执行的回调函数
+	    },
+	    cancel: function () { 
+	        // 用户取消分享后执行的回调函数
+	    }
+	});
+	// 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+
+	wx.onMenuShareAppMessage({
+	    title: '蔚蓝-招新', // 分享标题
+	    desc: '蔚蓝工作室招新啦', // 分享描述
+	    link: '', // 分享链接
+	    imgUrl: '../images/share.jpg', // 分享图标
+	    type: '', // 分享类型,music、video或link，不填默认为link
+	    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	    success: function () { 
+	        // 用户确认分享后执行的回调函数
+	    },
+	    cancel: function () { 
+	        // 用户取消分享后执行的回调函数
+	    }
+	});
 
 })
 function initPageClass(){
