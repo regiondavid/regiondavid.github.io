@@ -267,32 +267,81 @@ $(function($){
  //            shareWeibo();
  //        });
  //    }, false);
-	wx.onMenuShareTimeline({
-	    title: '蔚蓝-招新', // 分享标题
-	    link: '', // 分享链接
-	    imgUrl: '../images/share.jpg', // 分享图标
-	    success: function () { 
-	        // 用户确认分享后执行的回调函数
-	    },
-	    cancel: function () { 
-	        // 用户取消分享后执行的回调函数
-	    }
-	});
-	// 获取“分享给朋友”按钮点击状态及自定义分享内容接口
 
-	wx.onMenuShareAppMessage({
-	    title: '蔚蓝-招新', // 分享标题
-	    desc: '蔚蓝工作室招新啦', // 分享描述
-	    link: '', // 分享链接
-	    imgUrl: '../images/share.jpg', // 分享图标
-	    type: '', // 分享类型,music、video或link，不填默认为link
-	    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-	    success: function () { 
-	        // 用户确认分享后执行的回调函数
-	    },
-	    cancel: function () { 
-	        // 用户取消分享后执行的回调函数
-	    }
+ 	wx.config({
+	    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    	jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	});
+
+ 	wx.ready(function(){
+		wx.onMenuShareTimeline({
+		    title: '蔚蓝-招新', // 分享标题
+		    link: 'https://regiondavid.github.io/app2/index.html', // 分享链接
+		    imgUrl: '../images/share.jpg', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+		// 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+
+		wx.onMenuShareAppMessage({
+		    title: '蔚蓝-招新', // 分享标题
+		    desc: '蔚蓝工作室招新啦', // 分享描述
+		    link: 'https://regiondavid.github.io/app2/index.html', // 分享链接
+		    imgUrl: '../images/share.jpg', // 分享图标
+		    type: '', // 分享类型,music、video或link，不填默认为link
+		    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareQQ({
+		    title: '蔚蓝-招新', // 分享标题
+		    desc: '蔚蓝工作室招新啦', // 分享描述
+		    link: '', // 分享链接
+		    imgUrl: '', // 分享图标
+		    success: function () { 
+		       // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		       // 用户取消分享后执行的回调函数
+		    }
+		});
+		// 获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+
+		wx.onMenuShareWeibo({
+		    title: '蔚蓝-招新', // 分享标题
+		    desc: '蔚蓝工作室招新啦', // 分享描述
+		    link: '', // 分享链接
+		    imgUrl: '', // 分享图标
+		    success: function () { 
+		       // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+		// 获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+
+		wx.onMenuShareQZone({
+		    title: '蔚蓝-招新', // 分享标题
+		    desc: '蔚蓝工作室招新啦', // 分享描述
+		    link: '', // 分享链接
+		    imgUrl: '', // 分享图标
+		    success: function () { 
+		       // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
 	});
 
 })
