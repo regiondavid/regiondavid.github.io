@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>伟球迷的Blog</title>
+  <subtitle>something about code , life and thought</subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://regiondavid.github.io/blog/"/>
+  <updated>2016-08-07T04:39:07.305Z</updated>
+  <id>http://regiondavid.github.io/blog/</id>
+  
+  <author>
+    <name>Region David</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://regiondavid.github.io/blog/2016/07/29/hello-world/"/>
+    <id>http://regiondavid.github.io/blog/2016/07/29/hello-world/</id>
+    <published>2016-07-29T03:37:15.972Z</published>
+    <updated>2016-08-07T04:39:07.305Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>盒模型的继续探索——margin属性</title>
+    <link href="http://regiondavid.github.io/blog/2016/07/19/blog2/"/>
+    <id>http://regiondavid.github.io/blog/2016/07/19/blog2/</id>
+    <published>2016-07-19T13:41:44.000Z</published>
+    <updated>2016-08-08T13:54:25.068Z</updated>
+    
+    <content type="html"><![CDATA[<p>上次我们了解了盒模型的基本概念，并初步尝试了一下，结果最后留下了个问题还没解决。那么今天我们就把上次的问题解决掉，顺便研究一下盒模型中的一个重要部分——margin<br><a id="more"></a></p>
+<p>####先看上次的问题：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></div><div class="line"> 		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span>2333<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">true<span class="selector-id">#div1</span>&#123;</div><div class="line">           <span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">           <span class="attribute">background-color</span>: green;</div><div class="line">       &#125;</div><div class="line">       <span class="selector-id">#div2</span>&#123;</div><div class="line">           <span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">           <span class="attribute">padding-top</span>: <span class="number">50px</span>;</div><div class="line">           <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">background-color</span>: blue;</div><div class="line">       &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>结果是这样的：<br><img src="http://i4.piimg.com/1949/f51c11a305253f94.png" alt="image1.png"><br>可以看到div2不仅没有和div1隔开50px的距离，反而div1和div2一起向下移动了50px，在上方空出了50px的空白，这是怎么回事？</p>
+<p>首先让我们看看MDN上对margin属性的定义</p>
+<blockquote>
+<p>margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。四个外边距属性设置分别是： margin-top， margin-right， margin-bottom 和 margin-left 。指定的外边距允许为负数。</p>
+<p>形式语法:   [ <length> | <percentage> | auto ]{1,4}</percentage></length></p>
+<p>margin: style                  /<em>单值语法   </em>/  举例： margin: 1em; </p>
+<p>margin: vertical horizontal    /<em>二值语法   </em>/  举例： margin: 5% auto; </p>
+<p>margin: top horizontal bottom  /<em>三值语法 </em>/  举例： margin: 1em auto 2em; </p>
+<p>margin: top right bottom left  /<em>四值语法  </em>/  举例： margin: 2px 1em 0 auto; </p>
+<p>margin: inherit</p>
+</blockquote>
+<p>注意：</p>
+<ul>
+<li>当同时为某个元素设置4个margin属性的时候，按照上右下左的顺序，为了便于记忆可以记住是顺时针顺序</li>
+<li>当某个元素的margin-left和margin-right设置为auto时，一般为水平居中，这也是我们平时最常用的水平居中方法</li>
+</ul>
+<p>再来看一下我们之前的那个例子，其实问题很简单，就是由于margin计算的是兄弟级的盒模型，而div2就是那一级唯一的一个盒子，所以当div2向下移动了50px的时候，div1必须紧贴着div2，所以也跟着向下移动了50px。</p>
+<p>如此说来，要想出现我们所需要的效果，只需要为div2添加浮动即可。比如：<code>float:left</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">           <span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">           <span class="attribute">padding-top</span>: <span class="number">50px</span>;</div><div class="line">           <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">background-color</span>: blue;</div><div class="line">        	<span class="attribute">float</span>: left;</div><div class="line">       &#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://i1.piimg.com/1949/10abbd886ca3fedd.png" alt="image2"></p>
+<h3 id="扩展：外边距塌陷"><a href="#扩展：外边距塌陷" class="headerlink" title="扩展：外边距塌陷"></a>扩展：外边距塌陷</h3><p>在MDN上有着明确的定义</p>
+<blockquote>
+<p>块元素的 top 与 bottom 外边距有时会合并（塌陷）为单个外边距（合并后最大的外边距），这样的现象称之为 外边距合并(塌陷)。</p>
+</blockquote>
+<p>下面三种基本情形会出现外边距塌陷：</p>
+<ul>
+<li>毗邻兄弟元素<blockquote>
+<p>毗邻的兄弟元素的外边距会塌陷（当靠后的元素清除浮动时除外）</p>
+</blockquote>
+</li>
+<li>父元素与第一个/最后一个子元素<blockquote>
+<p>如果块元素的 margin-top 与它的第一个子元素的margin-top 之间没有 border、padding、inline content、 clearance 来分隔，或者块元素的 margin-bottom 与它的最后一个子元素的margin-bottom 之间没有 border、padding、inline content、height、min-height、 max-height 分隔，那么外边距会合并(塌陷)。子元素多余的外边距会被父元素的外边距截断。</p>
+</blockquote>
+</li>
+<li>空块元素<blockquote>
+<p>如果块元素的 margin-top 与 margin-bottom 之间没有 border、padding、inline content、height、min-height 来分隔，那么它的上下外边距将会合并。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>即使外边距为0，这些规则仍旧生效。因此，无论父元素的外边距是否为0，第一个或者最后一个子元素的外边距会被父元素的外边距截断(根据上面的规则)，在负外边距的情况下，合并后的外边距为最大正外边距与最小负外边距之和。</p>
+<p>浮动 及 绝对定位 元素外边距不会合并。</p>
+</blockquote>
+<p>关于外边距塌陷，有兴趣的同学可以自己尝试一下。</p>
+<h5 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h5><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin" target="_blank" rel="external">margin属性</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="external">外边距合并（塌陷）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上次我们了解了盒模型的基本概念，并初步尝试了一下，结果最后留下了个问题还没解决。那么今天我们就把上次的问题解决掉，顺便研究一下盒模型中的一个重要部分——margin&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://regiondavid.github.io/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>盒模型的科普及一点小探索</title>
+    <link href="http://regiondavid.github.io/blog/2016/07/13/blog1/"/>
+    <id>http://regiondavid.github.io/blog/2016/07/13/blog1/</id>
+    <published>2016-07-13T13:41:44.000Z</published>
+    <updated>2016-07-30T14:09:42.054Z</updated>
+    
+    <content type="html"><![CDATA[<p>盒模型的科普及一点小探索<br><a id="more"></a></p>
+<h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
+<blockquote>
+<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。 </p>
+</blockquote>
+<p>可以看出盒模型就像它的名字那样，指的就是一个矩形盒子，但是这个盒子有外边距、内边距、边框和内容区域。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_boxmodel.gif" alt="盒模型"></p>
+<p>从图可以看出，我们平时所定义的 width 和 height 都是对应的内容区域，但是当我们在布局的时候，则是依照盒模型的尺寸去进行布局。所以在最后计算的时候：<code>盒模型的宽度 = margin 的宽度 + padding 的宽度 + border 的宽度 + 内容区域的宽度</code>。<br>似乎将 padding 和 border 也计算在宽度里不大符合我们常人的思维，IE 也是这么想的。所以在 IE 下和其他浏览器下计算的尺寸是不一样的。对此，css3 提出了 box-sizing 这个属性。box-sizing 有两个可选值，一个是默认的 content-box，另一个就是 border-box。当把 box-sizing 设置为 content-box 的时候，计算尺寸就把所有的都加起来；当设置为 border-box 时，就类似IE的计算方法，将 padding 和 border 算在 width 和 height 里。掌握这些基础对页面的布局有着非常好的帮助。</p>
+<h3 id="一点有趣的探索"><a href="#一点有趣的探索" class="headerlink" title="一点有趣的探索"></a>一点有趣的探索</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">true#div1&#123;</div><div class="line">truetruewidth:500px;</div><div class="line">truetruetrueheight: 300px;</div><div class="line">truetruebackground-color: green;</div><div class="line">true&#125;</div><div class="line">true#div2&#123;</div><div class="line">truetruewidth:300px;</div><div class="line">truetruetrueheight: 100px;</div><div class="line">truetruebackground-color: blue;</div><div class="line">true&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这是最初的样子<img src="http://i4.piimg.com/4851/50f5caa366cd86c5.png" alt="test1"><br>当我把css稍作修改<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果变成了这个样子。。。<br><img src="http://i2.piimg.com/4851/aeeee223f73c2a76.png" alt="test2"><br><img src="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg" alt="什么鬼">，div2咋还变长了？<br>于是我开始了探索(<del>瞎折腾</del>)<br>首先在div中添加几个字，看看content区域有没有变，内容区域果然正常<img src="http://i2.piimg.com/4851/86e535e23ba2bb32.png" alt="test3"><br>可以很明显对比看到内容区域向下移动了50px的距离，但是为什么内容的上方仍然是蓝色呢？<br>还记得我们开头的话吗？</p>
+<blockquote>
+<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。</p>
+</blockquote>
+<p>而这里渲染的背景颜色就是基于盒模型去渲染的，它会把padding部分和content部分都去渲染上背景色。<br>那么问题又来了，如果再设置margin属性，背景色会不会也渲染上呢？<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>渲染出来的结果竟然是<img src="http://i2.piimg.com/4851/e5299204e93b1362.png" alt="test4"><br>结果div2的背景色不仅没有变化，div1上边竟然还多出一块空白的？！<br><img src="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg" alt="WTF"></p>
+<p>这他喵的是咋回事？</p>
+<p>预知后事如何，且听下回分解</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;盒模型的科普及一点小探索&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://regiondavid.github.io/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+</feed>
