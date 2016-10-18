@@ -2028,7 +2028,7 @@ pre .css ~ * .id {
   bottom: 6px;
 }
 #header .tagcloud a {
-  color: #258fb8;
+  color: #fff;
 }
 .tagcloud a {
   display: inline-block;
