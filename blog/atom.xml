@@ -4,9 +4,9 @@
   <subtitle>something about code , life and thought</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="http://regiondavid.github.io/blog/"/>
-  <updated>2016-08-07T04:39:07.305Z</updated>
-  <id>http://regiondavid.github.io/blog/</id>
+  <link href="http://regiondavid.github.io/"/>
+  <updated>2016-10-18T01:37:02.219Z</updated>
+  <id>http://regiondavid.github.io/</id>
   
   <author>
     <name>Region David</name>
@@ -16,9 +16,141 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>单例模式</title>
+    <link href="http://regiondavid.github.io/2016/10/17/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://regiondavid.github.io/2016/10/17/单例模式/</id>
+    <published>2016-10-17T14:29:29.753Z</published>
+    <updated>2016-10-18T01:37:02.219Z</updated>
+    
+    <content type="html"><![CDATA[<p>单例模式学习笔记<br><a id="more"></a></p>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+<blockquote>
+<p>因为JavaScript本身就是无类的，既然我们只需要一个“唯一”的对象，为什么要先为它创建一个“类”呢？更加需要</p>
+</blockquote>
+<p>所以单例模式其实更加需要注意的是全局变量的污染。<br>常用在只需要绑定一次的代码或者只生成一个对象上，类似JQ的one</p>
+<ul>
+<li><p>简单demo</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.name = name;</div><div class="line">true<span class="keyword">this</span>.instance = <span class="literal">null</span>;</div><div class="line">&#125;;</div><div class="line">Singleton.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line">Singleton.getInstance = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">true<span class="keyword">if</span>(!<span class="keyword">this</span>.instance)&#123;</div><div class="line">truetrue<span class="keyword">this</span>.instance = <span class="keyword">new</span> Singleton();</div><div class="line">true&#125;</div><div class="line">true<span class="keyword">return</span> <span class="keyword">this</span>.instance;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> a = Singleton.getInstance(<span class="string">'sven1'</span>);</div><div class="line"><span class="keyword">var</span> b = Singleton.getInstance(<span class="string">'sven2'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>透明的单例模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CreateDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance;</div><div class="line">true<span class="keyword">var</span> CreateDiv = <span class="function"><span class="keyword">function</span>(<span class="params"> html</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(instance) &#123;</div><div class="line">truetruetrue<span class="keyword">return</span> instance;</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">this</span>.html = html;</div><div class="line">truetrue<span class="keyword">this</span>.init();</div><div class="line">truetrue<span class="keyword">return</span> instance = <span class="keyword">this</span>;</div><div class="line">true&#125;;</div><div class="line">trueCreateDiv.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">truetruediv.innerHTML = <span class="keyword">this</span>.html;</div><div class="line">truetrue<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">true&#125;;</div><div class="line">true<span class="keyword">return</span> CreateDiv;</div><div class="line">&#125;)();</div><div class="line"><span class="comment">//用闭包和IIFE封装instance</span></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> CreateDiv( <span class="string">'&lt;p&gt;222&lt;/p&gt;'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> CreateDiv( <span class="string">'sven2'</span>);</div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用代理实现单例模式<br>把判断是否有instance提取出来，方便createDiv的复用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CreateDiv = <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.html = html;</div><div class="line">true<span class="keyword">this</span>.init();</div><div class="line">&#125;;</div><div class="line">CreateDiv.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">truediv.innerHTML = <span class="keyword">this</span>.html;</div><div class="line">true<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ProxySingletonCreateDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(!instance)&#123;</div><div class="line">truetruetrueinstance = <span class="keyword">new</span> CreateDiv(html);</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">return</span> instance;</div><div class="line">true&#125;</div><div class="line">&#125;)();</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> ProxySingletonCreateDiv(<span class="string">'sven1'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> ProxySingletonCreateDiv(<span class="string">'sven2'</span>);</div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>惰性单例</p>
+<blockquote>
+<p>在需要时才创建对象实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Singleton.getInstance = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance = <span class="literal">null</span>;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(!instance)&#123;</div><div class="line">truetruetrueinstance = <span class="keyword">new</span> Singleton(name);</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">return</span> instance;</div><div class="line">true&#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>将上述代码中的单例判断逻辑抽离出来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> result;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> result || (result = fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>));	</div><div class="line">true&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;单例模式学习笔记&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://regiondavid.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="设计模式" scheme="http://regiondavid.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="学习笔记" scheme="http://regiondavid.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式学习笔记</title>
+    <link href="http://regiondavid.github.io/2016/10/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://regiondavid.github.io/2016/10/17/设计模式学习笔记/</id>
+    <published>2016-10-17T14:29:29.751Z</published>
+    <updated>2016-10-18T01:34:00.123Z</updated>
+    
+    <content type="html"><![CDATA[<p>跟着 <a href="https://book.douban.com/subject/26382780/" target="_blank" rel="external">JavaScript设计模式与开发实践</a> 一书学习设计模式<br><a id="more"></a></p>
+<h4 id="跟着-JavaScript设计模式与开发实践-一书学习设计模式"><a href="#跟着-JavaScript设计模式与开发实践-一书学习设计模式" class="headerlink" title="跟着 JavaScript设计模式与开发实践 一书学习设计模式"></a>跟着 <a href="https://book.douban.com/subject/26382780/" target="_blank" rel="external">JavaScript设计模式与开发实践</a> 一书学习设计模式</h4><h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><ul>
+<li><a href="单例模式.md">单例模式</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;跟着 &lt;a href=&quot;https://book.douban.com/subject/26382780/&quot;&gt;JavaScript设计模式与开发实践&lt;/a&gt; 一书学习设计模式&lt;br&gt;
+    
+    </summary>
+    
+      <category term="code" scheme="http://regiondavid.github.io/categories/code/"/>
+    
+    
+      <category term="前端" scheme="http://regiondavid.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="note" scheme="http://regiondavid.github.io/tags/note/"/>
+    
+      <category term="code" scheme="http://regiondavid.github.io/tags/code/"/>
+    
+      <category term="随笔" scheme="http://regiondavid.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多种布局的探索</title>
+    <link href="http://regiondavid.github.io/2016/10/16/%E5%A4%9A%E7%A7%8D%E5%B8%83%E5%B1%80%E7%9A%84%E6%8E%A2%E7%B4%A2/"/>
+    <id>http://regiondavid.github.io/2016/10/16/多种布局的探索/</id>
+    <published>2016-10-16T14:30:00.000Z</published>
+    <updated>2016-10-18T01:33:04.203Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索<br><a id="more"></a></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#1">最常规的三段式布局</a></li>
+<li><a href="#2">左右固定宽度的两栏式布局</a></li>
+<li><a href="#3">左或右固定宽度，另一侧自适应的布局</a></li>
+<li><a href="#4">横向固定宽度的三段式布局</a></li>
+<li>左右固定宽度中间自适应的布局方法<ul>
+<li><a href="#5">常见布局方式</a></li>
+<li><a href="#6">双飞翼布局</a></li>
+<li><a href="#7">*flex布局</a></li>
+</ul>
+</li>
+<li><a href="#8">未完待续</a></li>
+</ul>
+<h3 id="最常规的三段式布局"><a href="#最常规的三段式布局" class="headerlink" title="最常规的三段式布局"></a><span id="1">最常规的三段式布局</span></h3><p>三段式布局是我们平时最常见到的布局方式。如下图<br><img src="http://i1.piimg.com/1949/8d2c19cf9b7c83eb.png" alt="实例一"><br>头部、身体和尾部很生动的显示出三部分的排列方式，即从上到下依次排列，实现起来也非常简单，写出三个DIV自己就排好了。此处也就不用代码去展示了。</p>
+<h3 id="左右固定宽度的两栏式布局"><a href="#左右固定宽度的两栏式布局" class="headerlink" title="左右固定宽度的两栏式布局"></a><span id="2">左右固定宽度的两栏式布局</span></h3><p>这种布局也非常常见，实现方式也有很多，我们一一来尝试。</p>
+<ol>
+<li><p>规定好左右的宽度后，利用float浮动来实现</p>
+<p> <a href="http://codepen.io/regiondavid/pen/KrAvQQ" target="_blank" rel="external">CodePen 代码地址</a></p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">true<span class="selector-class">.box1</span>&#123;</div><div class="line">truetrue<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">truetrue<span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">truetrue<span class="attribute">float</span>: left;</div><div class="line">truetrue<span class="attribute">background-color</span>: <span class="number">#7068EB</span>;</div><div class="line">true&#125;</div><div class="line">true<span class="selector-class">.box2</span>&#123;</div><div class="line">truetrue<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">truetrue<span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">truetrue<span class="attribute">float</span>: left;</div><div class="line">truetrue<span class="attribute">background-color</span>: <span class="number">#FF3434</span>;</div><div class="line">true&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>只浮动一个元素，将浮动元素移动到指定位置</li>
+</ol>
+<p>坑待填。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://regiondavid.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="随笔" scheme="http://regiondavid.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="总结" scheme="http://regiondavid.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="布局" scheme="http://regiondavid.github.io/tags/%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://regiondavid.github.io/blog/2016/07/29/hello-world/"/>
-    <id>http://regiondavid.github.io/blog/2016/07/29/hello-world/</id>
+    <link href="http://regiondavid.github.io/2016/07/29/hello-world/"/>
+    <id>http://regiondavid.github.io/2016/07/29/hello-world/</id>
     <published>2016-07-29T03:37:15.972Z</published>
     <updated>2016-08-07T04:39:07.305Z</updated>
     
@@ -45,8 +177,8 @@
   
   <entry>
     <title>盒模型的继续探索——margin属性</title>
-    <link href="http://regiondavid.github.io/blog/2016/07/19/blog2/"/>
-    <id>http://regiondavid.github.io/blog/2016/07/19/blog2/</id>
+    <link href="http://regiondavid.github.io/2016/07/19/blog2/"/>
+    <id>http://regiondavid.github.io/2016/07/19/blog2/</id>
     <published>2016-07-19T13:41:44.000Z</published>
     <updated>2016-08-08T13:54:25.068Z</updated>
     
@@ -107,15 +239,15 @@
     
     </summary>
     
-      <category term="前端" scheme="http://regiondavid.github.io/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://regiondavid.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
   </entry>
   
   <entry>
     <title>盒模型的科普及一点小探索</title>
-    <link href="http://regiondavid.github.io/blog/2016/07/13/blog1/"/>
-    <id>http://regiondavid.github.io/blog/2016/07/13/blog1/</id>
+    <link href="http://regiondavid.github.io/2016/07/13/blog1/"/>
+    <id>http://regiondavid.github.io/2016/07/13/blog1/</id>
     <published>2016-07-13T13:41:44.000Z</published>
     <updated>2016-07-30T14:09:42.054Z</updated>
     
@@ -144,7 +276,7 @@
     
     </summary>
     
-      <category term="前端" scheme="http://regiondavid.github.io/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://regiondavid.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
   </entry>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>单例模式 | 伟球迷的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="单例模式学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="http://regiondavid.github.io/2016/10/17/单例模式/index.html">
+<meta property="og:site_name" content="伟球迷的Blog">
+<meta property="og:description" content="单例模式学习笔记">
+<meta property="og:updated_time" content="2016-10-18T01:37:02.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="单例模式学习笔记">
+  
+    <link rel="alternative" href="/atom.xml" title="伟球迷的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/img/favicon.png">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/blog/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Region David</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">something about code , life and thought</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">主页</a></li>
+				        
+							<li><a href="/blog/archives">所有文章</a></li>
+				        
+							<li><a href="/blog/tags/随笔/">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/regiondavid" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/blog/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/regiondavid" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/blog/uestczjw@gmail.com" title="mail">mail</a>
+					        
+								<a class="google" target="_blank" href="/blog/uestczjw@gmail.com" title="google">google</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/code/" style="font-size: 10px;">code</a> <a href="/blog/tags/note/" style="font-size: 10px;">note</a> <a href="/blog/tags/前端/" style="font-size: 20px;">前端</a> <a href="/blog/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/blog/tags/布局/" style="font-size: 10px;">布局</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/blog/tags/随笔/" style="font-size: 15px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Region David</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/blog/img/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Region David</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">something about code , life and thought</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">主页</a></li>
+		        
+					<li><a href="/blog/archives">所有文章</a></li>
+		        
+					<li><a href="/blog/tags/随笔/">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/regiondavid" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/blog/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/regiondavid" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/blog/uestczjw@gmail.com" title="mail">mail</a>
+			        
+						<a class="google" target="_blank" href="/blog/uestczjw@gmail.com" title="google">google</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-单例模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/10/17/单例模式/" class="article-date">
+  	<time datetime="2016-10-17T14:29:29.753Z" itemprop="datePublished">2016-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      单例模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>单例模式学习笔记<br><a id="more"></a></p>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+<blockquote>
+<p>因为JavaScript本身就是无类的，既然我们只需要一个“唯一”的对象，为什么要先为它创建一个“类”呢？更加需要</p>
+</blockquote>
+<p>所以单例模式其实更加需要注意的是全局变量的污染。<br>常用在只需要绑定一次的代码或者只生成一个对象上，类似JQ的one</p>
+<ul>
+<li><p>简单demo</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.name = name;</div><div class="line">true<span class="keyword">this</span>.instance = <span class="literal">null</span>;</div><div class="line">&#125;;</div><div class="line">Singleton.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line">Singleton.getInstance = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">true<span class="keyword">if</span>(!<span class="keyword">this</span>.instance)&#123;</div><div class="line">truetrue<span class="keyword">this</span>.instance = <span class="keyword">new</span> Singleton();</div><div class="line">true&#125;</div><div class="line">true<span class="keyword">return</span> <span class="keyword">this</span>.instance;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> a = Singleton.getInstance(<span class="string">'sven1'</span>);</div><div class="line"><span class="keyword">var</span> b = Singleton.getInstance(<span class="string">'sven2'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>透明的单例模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CreateDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance;</div><div class="line">true<span class="keyword">var</span> CreateDiv = <span class="function"><span class="keyword">function</span>(<span class="params"> html</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(instance) &#123;</div><div class="line">truetruetrue<span class="keyword">return</span> instance;</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">this</span>.html = html;</div><div class="line">truetrue<span class="keyword">this</span>.init();</div><div class="line">truetrue<span class="keyword">return</span> instance = <span class="keyword">this</span>;</div><div class="line">true&#125;;</div><div class="line">trueCreateDiv.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">truetruediv.innerHTML = <span class="keyword">this</span>.html;</div><div class="line">truetrue<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">true&#125;;</div><div class="line">true<span class="keyword">return</span> CreateDiv;</div><div class="line">&#125;)();</div><div class="line"><span class="comment">//用闭包和IIFE封装instance</span></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> CreateDiv( <span class="string">'&lt;p&gt;222&lt;/p&gt;'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> CreateDiv( <span class="string">'sven2'</span>);</div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用代理实现单例模式<br>把判断是否有instance提取出来，方便createDiv的复用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CreateDiv = <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.html = html;</div><div class="line">true<span class="keyword">this</span>.init();</div><div class="line">&#125;;</div><div class="line">CreateDiv.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">truediv.innerHTML = <span class="keyword">this</span>.html;</div><div class="line">true<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ProxySingletonCreateDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(!instance)&#123;</div><div class="line">truetruetrueinstance = <span class="keyword">new</span> CreateDiv(html);</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">return</span> instance;</div><div class="line">true&#125;</div><div class="line">&#125;)();</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> ProxySingletonCreateDiv(<span class="string">'sven1'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> ProxySingletonCreateDiv(<span class="string">'sven2'</span>);</div><div class="line"><span class="built_in">console</span>.log(a===b);</div></pre></td></tr></table></figure>
+</li>
+<li><p>惰性单例</p>
+<blockquote>
+<p>在需要时才创建对象实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Singleton.getInstance = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> instance = <span class="literal">null</span>;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(!instance)&#123;</div><div class="line">truetruetrueinstance = <span class="keyword">new</span> Singleton(name);</div><div class="line">truetrue&#125;</div><div class="line">truetrue<span class="keyword">return</span> instance;</div><div class="line">true&#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>将上述代码中的单例判断逻辑抽离出来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> result;</div><div class="line">true<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> result || (result = fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>));	</div><div class="line">true&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/10/17/设计模式学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="单例模式" data-title="单例模式" data-url="http://regiondavid.github.io/blog/2016/10/17/单例模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Region David
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: /blog/
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

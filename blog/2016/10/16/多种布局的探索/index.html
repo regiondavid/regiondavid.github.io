@@ -4,26 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>盒模型的科普及一点小探索 | 伟球迷的Blog</title>
+  <title>多种布局的探索 | 伟球迷的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="盒模型的科普及一点小探索">
+  <meta name="description" content="最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盒模型的科普及一点小探索">
-<meta property="og:url" content="http://regiondavid.github.io/2016/07/13/blog1/index.html">
+<meta property="og:title" content="多种布局的探索">
+<meta property="og:url" content="http://regiondavid.github.io/2016/10/16/多种布局的探索/index.html">
 <meta property="og:site_name" content="伟球迷的Blog">
-<meta property="og:description" content="盒模型的科普及一点小探索">
-<meta property="og:image" content="http://www.w3school.com.cn/i/ct_boxmodel.gif">
-<meta property="og:image" content="http://i4.piimg.com/4851/50f5caa366cd86c5.png">
-<meta property="og:image" content="http://i2.piimg.com/4851/aeeee223f73c2a76.png">
-<meta property="og:image" content="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg">
-<meta property="og:image" content="http://i2.piimg.com/4851/86e535e23ba2bb32.png">
-<meta property="og:image" content="http://i2.piimg.com/4851/e5299204e93b1362.png">
-<meta property="og:image" content="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg">
-<meta property="og:updated_time" content="2016-07-30T14:09:42.054Z">
+<meta property="og:description" content="最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索">
+<meta property="og:image" content="http://i1.piimg.com/1949/8d2c19cf9b7c83eb.png">
+<meta property="og:updated_time" content="2016-10-18T01:33:04.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盒模型的科普及一点小探索">
-<meta name="twitter:description" content="盒模型的科普及一点小探索">
-<meta name="twitter:image" content="http://www.w3school.com.cn/i/ct_boxmodel.gif">
+<meta name="twitter:title" content="多种布局的探索">
+<meta name="twitter:description" content="最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/8d2c19cf9b7c83eb.png">
   
     <link rel="alternative" href="/atom.xml" title="伟球迷的Blog" type="application/atom+xml">
   
@@ -217,11 +211,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-blog1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-多种布局的探索" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/07/13/blog1/" class="article-date">
-  	<time datetime="2016-07-13T13:41:44.000Z" itemprop="datePublished">2016-07-13</time>
+      <a href="/blog/2016/10/16/多种布局的探索/" class="article-date">
+  	<time datetime="2016-10-16T14:30:00.000Z" itemprop="datePublished">2016-10-16</time>
 </a>
     </div>
   
@@ -234,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      盒模型的科普及一点小探索
+      多种布局的探索
     </h1>
   
 
@@ -242,11 +236,11 @@
       
       <div class="article-info article-info-post">
         
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/前端/">前端</a>
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/布局/">布局</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/随笔/">随笔</a></li></ul>
 	</div>
 
+        
 
         <div class="clearfix"></div>
       </div>
@@ -254,23 +248,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>盒模型的科普及一点小探索<br><a id="more"></a></p>
-<h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
-<blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。 </p>
-</blockquote>
-<p>可以看出盒模型就像它的名字那样，指的就是一个矩形盒子，但是这个盒子有外边距、内边距、边框和内容区域。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_boxmodel.gif" alt="盒模型"></p>
-<p>从图可以看出，我们平时所定义的 width 和 height 都是对应的内容区域，但是当我们在布局的时候，则是依照盒模型的尺寸去进行布局。所以在最后计算的时候：<code>盒模型的宽度 = margin 的宽度 + padding 的宽度 + border 的宽度 + 内容区域的宽度</code>。<br>似乎将 padding 和 border 也计算在宽度里不大符合我们常人的思维，IE 也是这么想的。所以在 IE 下和其他浏览器下计算的尺寸是不一样的。对此，css3 提出了 box-sizing 这个属性。box-sizing 有两个可选值，一个是默认的 content-box，另一个就是 border-box。当把 box-sizing 设置为 content-box 的时候，计算尺寸就把所有的都加起来；当设置为 border-box 时，就类似IE的计算方法，将 padding 和 border 算在 width 和 height 里。掌握这些基础对页面的布局有着非常好的帮助。</p>
-<h3 id="一点有趣的探索"><a href="#一点有趣的探索" class="headerlink" title="一点有趣的探索"></a>一点有趣的探索</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">true#div1&#123;</div><div class="line">truetruewidth:500px;</div><div class="line">truetruetrueheight: 300px;</div><div class="line">truetruebackground-color: green;</div><div class="line">true&#125;</div><div class="line">true#div2&#123;</div><div class="line">truetruewidth:300px;</div><div class="line">truetruetrueheight: 100px;</div><div class="line">truetruebackground-color: blue;</div><div class="line">true&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这是最初的样子<img src="http://i4.piimg.com/4851/50f5caa366cd86c5.png" alt="test1"><br>当我把css稍作修改<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>结果变成了这个样子。。。<br><img src="http://i2.piimg.com/4851/aeeee223f73c2a76.png" alt="test2"><br><img src="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg" alt="什么鬼">，div2咋还变长了？<br>于是我开始了探索(<del>瞎折腾</del>)<br>首先在div中添加几个字，看看content区域有没有变，内容区域果然正常<img src="http://i2.piimg.com/4851/86e535e23ba2bb32.png" alt="test3"><br>可以很明显对比看到内容区域向下移动了50px的距离，但是为什么内容的上方仍然是蓝色呢？<br>还记得我们开头的话吗？</p>
-<blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。</p>
-</blockquote>
-<p>而这里渲染的背景颜色就是基于盒模型去渲染的，它会把padding部分和content部分都去渲染上背景色。<br>那么问题又来了，如果再设置margin属性，背景色会不会也渲染上呢？<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">padding-top</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>渲染出来的结果竟然是<img src="http://i2.piimg.com/4851/e5299204e93b1362.png" alt="test4"><br>结果div2的背景色不仅没有变化，div1上边竟然还多出一块空白的？！<br><img src="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg" alt="WTF"></p>
-<p>这他喵的是咋回事？</p>
-<p>预知后事如何，且听下回分解</p>
+        <p>最近在刷IFE的三栏式布局的时候发现原来对布局的探索还不够，特此以此文章来深入探索<br><a id="more"></a></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#1">最常规的三段式布局</a></li>
+<li><a href="#2">左右固定宽度的两栏式布局</a></li>
+<li><a href="#3">左或右固定宽度，另一侧自适应的布局</a></li>
+<li><a href="#4">横向固定宽度的三段式布局</a></li>
+<li>左右固定宽度中间自适应的布局方法<ul>
+<li><a href="#5">常见布局方式</a></li>
+<li><a href="#6">双飞翼布局</a></li>
+<li><a href="#7">*flex布局</a></li>
+</ul>
+</li>
+<li><a href="#8">未完待续</a></li>
+</ul>
+<h3 id="最常规的三段式布局"><a href="#最常规的三段式布局" class="headerlink" title="最常规的三段式布局"></a><span id="1">最常规的三段式布局</span></h3><p>三段式布局是我们平时最常见到的布局方式。如下图<br><img src="http://i1.piimg.com/1949/8d2c19cf9b7c83eb.png" alt="实例一"><br>头部、身体和尾部很生动的显示出三部分的排列方式，即从上到下依次排列，实现起来也非常简单，写出三个DIV自己就排好了。此处也就不用代码去展示了。</p>
+<h3 id="左右固定宽度的两栏式布局"><a href="#左右固定宽度的两栏式布局" class="headerlink" title="左右固定宽度的两栏式布局"></a><span id="2">左右固定宽度的两栏式布局</span></h3><p>这种布局也非常常见，实现方式也有很多，我们一一来尝试。</p>
+<ol>
+<li><p>规定好左右的宽度后，利用float浮动来实现</p>
+<p> <a href="http://codepen.io/regiondavid/pen/KrAvQQ" target="_blank" rel="external">CodePen 代码地址</a></p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">true<span class="selector-class">.box1</span>&#123;</div><div class="line">truetrue<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">truetrue<span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">truetrue<span class="attribute">float</span>: left;</div><div class="line">truetrue<span class="attribute">background-color</span>: <span class="number">#7068EB</span>;</div><div class="line">true&#125;</div><div class="line">true<span class="selector-class">.box2</span>&#123;</div><div class="line">truetrue<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">truetrue<span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">truetrue<span class="attribute">float</span>: left;</div><div class="line">truetrue<span class="attribute">background-color</span>: <span class="number">#FF3434</span>;</div><div class="line">true&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>只浮动一个元素，将浮动元素移动到指定位置</li>
+</ol>
+<p>坑待填。。。</p>
 
       
     </div>
@@ -280,15 +283,20 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/07/19/blog2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/10/17/设计模式学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          盒模型的继续探索——margin属性
+          设计模式学习笔记
         
       </div>
     </a>
   
+  
+    <a href="/blog/2016/07/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -321,7 +329,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="blog1" data-title="盒模型的科普及一点小探索" data-url="http://regiondavid.github.io/blog/2016/07/13/blog1/"></div>
+	<div class="ds-thread" data-thread-key="多种布局的探索" data-title="多种布局的探索" data-url="http://regiondavid.github.io/blog/2016/10/16/多种布局的探索/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
