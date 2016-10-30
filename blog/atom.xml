@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://regiondavid.github.io/blog/"/>
-  <updated>2016-10-27T08:57:22.728Z</updated>
+  <updated>2016-10-30T07:43:21.657Z</updated>
   <id>http://regiondavid.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Atom配置记录</title>
+    <link href="http://regiondavid.github.io/blog/2016/10/30/ATOM%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>http://regiondavid.github.io/blog/2016/10/30/ATOM配置记录/</id>
+    <published>2016-10-29T16:00:00.000Z</published>
+    <updated>2016-10-30T07:43:21.657Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在学 <code>React</code>，发现 <code>sublime</code> 内对 <code>react</code> 的代码高亮实在是看着别扭，并且对 <code>react</code> 的语法支持的不是特别好，再加上没时间去专门折腾一下写个插件（<del>主要是懒</del>），所以就换到了 <code>Atom</code> 这来了。<br><a id="more"></a></p>
+<h3 id="Atom下载插件慢或无反应的解决办法"><a href="#Atom下载插件慢或无反应的解决办法" class="headerlink" title="Atom下载插件慢或无反应的解决办法"></a>Atom下载插件慢或无反应的解决办法</h3><p>比较直接的办法就是直接用 <code>npm/apm</code> 去安装</p>
+<ul>
+<li>首先在 <code>setting</code> 里的 <code>install</code> 里去查找你所要下载的插件的名字，有些直接在 <code>README.md</code> 里直接说明怎样用命令行去下载；比如：<code>emmet</code></li>
+<li>如果 <code>README.md</code> 里没有明说的话，你需要访问它的github，这个一般都会写出来的。然后把这个项目 <code>clone</code> 到你本机用户名下的 <code>.atom</code> 下的 <code>.packages</code> 下，然后进入这个文件夹，输入 <code>npm install</code>（如果使用 <code>apm</code>的话就是 <code>apm install</code>），至于怎样将 <code>npm</code> 的源更换成淘宝<code>apm</code> 的源就不在这说了，网上一搜一大堆。</li>
+<li>当显示 <code>Installing modules done</code> 时，就说明已经安装成功了<h3 id="个人常用的Atom插件记录"><a href="#个人常用的Atom插件记录" class="headerlink" title="个人常用的Atom插件记录"></a>个人常用的Atom插件记录</h3></li>
+<li>color-picker：快速调出调色盘选取颜色</li>
+<li>WakaTime：记录平时的工作时间及工作状态</li>
+<li>emmet：不解释，谁用谁知道</li>
+<li>未完待续，发现好的再补充</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在学 &lt;code&gt;React&lt;/code&gt;，发现 &lt;code&gt;sublime&lt;/code&gt; 内对 &lt;code&gt;react&lt;/code&gt; 的代码高亮实在是看着别扭，并且对 &lt;code&gt;react&lt;/code&gt; 的语法支持的不是特别好，再加上没时间去专门折腾一下写个插件（&lt;del&gt;主要是懒&lt;/del&gt;），所以就换到了 &lt;code&gt;Atom&lt;/code&gt; 这来了。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="atom" scheme="http://regiondavid.github.io/blog/tags/atom/"/>
+    
+      <category term="记录" scheme="http://regiondavid.github.io/blog/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>多种布局的回顾</title>
