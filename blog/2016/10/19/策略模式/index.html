@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://regiondavid.github.io/blog/2016/10/19/策略模式/index.html">
 <meta property="og:site_name" content="Regiondavid's Blog">
 <meta property="og:description" content="策略模式学习笔记">
-<meta property="og:updated_time" content="2016-10-19T08:51:40.160Z">
+<meta property="og:updated_time" content="2016-10-20T01:21:42.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="策略模式学习笔记">
 <meta name="twitter:description" content="策略模式学习笔记">
@@ -69,7 +69,7 @@
 				<div class="tips-box hide">
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
-						<li>Menu</li>
+						<li>菜单</li>
 						<li>Tags</li>
 						
 						
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/blog/tags/code/" style="font-size: 10px;">code</a> <a href="/blog/tags/note/" style="font-size: 10px;">note</a> <a href="/blog/tags/前端/" style="font-size: 20px;">前端</a> <a href="/blog/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/blog/tags/布局/" style="font-size: 10px;">布局</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/整理记录/" style="font-size: 10px;">整理记录</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/blog/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/blog/tags/atom/" style="font-size: 10px;">atom</a> <a href="/blog/tags/code/" style="font-size: 10px;">code</a> <a href="/blog/tags/note/" style="font-size: 10px;">note</a> <a href="/blog/tags/前端/" style="font-size: 20px;">前端</a> <a href="/blog/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/blog/tags/整理归纳/" style="font-size: 13.33px;">整理归纳</a> <a href="/blog/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/blog/tags/记录/" style="font-size: 10px;">记录</a> <a href="/blog/tags/设计模式/" style="font-size: 16.67px;">设计模式</a> <a href="/blog/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -225,32 +225,148 @@
 <h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><blockquote>
 <p>定义一系列算法，把它们一个个封装起来，并且使它们可以互相替换。</p>
 </blockquote>
+<p>可以理解为把目标相同的算法封装到一个策略对象中，然后去给定参数去调用。</p>
 <p>将不变的和变的隔离开</p>
 <ul>
-<li><p>一个传统的demo</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> performanceS = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">performanceS.prototype.calculate = <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">true<span class="keyword">return</span> salary*<span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> performanceA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">performanceA.prototype.calculate = <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">true<span class="keyword">return</span> salary*<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> performanceB = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">performanceB.prototype.calculate = <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">true<span class="keyword">return</span> salary*<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> Bonus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.salary = <span class="literal">null</span>;</div><div class="line">true<span class="keyword">this</span>.strategy = <span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line">Bonus.prototype.setSalary = <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.salary = salary;</div><div class="line">&#125;</div><div class="line">Bonus.prototype.setStrategy = <span class="function"><span class="keyword">function</span>(<span class="params">strategy</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.strategy = strategy;</div><div class="line">&#125;</div><div class="line">Bonus.prototype.getBonus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">return</span> <span class="keyword">this</span>.strategy.calculate(<span class="keyword">this</span>.salary);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>一个传统的demo<pre><code class="js">  var performanceS = function(){};
+  performanceS.prototype.calculate = function(salary){
+      return salary*4;
+  }
+  var performanceA = function(){};
+  performanceA.prototype.calculate = function(salary){
+      return salary*2;
+  }
+  var performanceB = function(){};
+  performanceB.prototype.calculate = function(salary){
+      return salary*1;
+  }
+  var Bonus = function(){
+      this.salary = null;
+      this.strategy = null;
+  }
+  Bonus.prototype.setSalary = function(salary){
+      this.salary = salary;
+  }
+  Bonus.prototype.setStrategy = function(strategy){
+      this.strategy = strategy;
+  }
+  Bonus.prototype.getBonus = function(){
+      return this.strategy.calculate(this.salary);
+  }
+</code></pre>
 </li>
-<li><p>一个js版的demo</p>
-<blockquote>
+<li>一个js版的demo<blockquote>
 <p>因为js中函数也是对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> strategies = &#123;</div><div class="line">true<span class="string">"S"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> salary*<span class="number">4</span>;</div><div class="line">true&#125;,</div><div class="line">true<span class="string">"A"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> salary*<span class="number">2</span>;</div><div class="line">true&#125;,</div><div class="line">true<span class="string">"B"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">salary</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> salary*<span class="number">1</span>;</div><div class="line">true&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> caculateBonus = <span class="function"><span class="keyword">function</span>(<span class="params">level,salary</span>)</span>&#123;</div><div class="line">true<span class="keyword">return</span> strategies[level](salary);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="js">  var strategies = {
+      &quot;S&quot;: function(salary){
+          return salary*4;
+      },
+      &quot;A&quot;: function(salary){
+          return salary*2;
+      },
+      &quot;B&quot;: function(salary){
+          return salary*1;
+      }
+  }
+  var caculateBonus = function(level,salary){
+      return strategies[level](salary);
+  };
+</code></pre>
 </blockquote>
 </li>
-<li><p>策略模式在动画中的运用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//计算小球当前的位置</span></div><div class="line"><span class="keyword">var</span> tween = &#123;</div><div class="line">true<span class="comment">//t:已消耗时间</span></div><div class="line">true<span class="comment">//b:初始位置</span></div><div class="line">true<span class="comment">//c:目标位置</span></div><div class="line">true<span class="comment">//d:持续时间</span></div><div class="line">truelinear: <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrueretrun c*t/d+b;</div><div class="line">true&#125;,</div><div class="line">trueeaseIn: <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> c*(t/=d)*t+b;</div><div class="line">true&#125;,</div><div class="line">truestrongEaseIn: <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> c*(t/=d)*t*t*t*t+b;</div><div class="line">true&#125;,</div><div class="line">truestrongEaseOut: <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> c*((t=t/d<span class="number">-1</span>)*t*t*t*t+<span class="number">1</span>)+b;</div><div class="line">true&#125;，</div><div class="line">truesineaseIn:  <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> c*(t/=d)*t*t+b;</div><div class="line">true&#125;,</div><div class="line">truesineaseOut: <span class="function"><span class="keyword">function</span>(<span class="params">t,b,c,d</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">return</span> c*((t=t/d<span class="number">-1</span>)*t*t+<span class="number">1</span>)+b;</div><div class="line">true&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
+<li>策略模式在动画中的运用<pre><code class="js">//计算小球当前的位置
+var tween = {
+  //t:已消耗时间
+  //b:初始位置
+  //c:目标位置
+  //d:持续时间
+  linear: function(t,b,c,d){
+      retrun c*t/d+b;
+  },
+  easeIn: function(t,b,c,d){
+      return c*(t/=d)*t+b;
+  },
+  strongEaseIn: function(t,b,c,d){
+      return c*(t/=d)*t*t*t*t+b;
+  },
+  strongEaseOut: function(t,b,c,d){
+      return c*((t=t/d-1)*t*t*t*t+1)+b;
+  }，
+  sineaseIn:  function(t,b,c,d){
+      return c*(t/=d)*t*t+b;
+  },
+  sineaseOut: function(t,b,c,d){
+      return c*((t=t/d-1)*t*t+1)+b;
+  }
+};
+</code></pre>
+<pre><code class="html">&lt;body&gt;
+  &lt;div style=&quot;position:absolute;background:blue&quot; id=&quot;test&quot;&gt;这是测试动画div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+```js<br>var Amimate = function(dom){<br>  this.dom = dom;            //进行运动的dom节点<br>  this.startTime = 0;            //动画开始时间<br>  this.startPos = 0;            //动画开始时，dom节点的位置，即dom的初始位置<br>  this.endPos = 0;            //动画结束时，dom节点的位置，即dom的目标位置<br>  this.propertyName = null;    //dom节点需要被改变的css属性名<br>  this.easing = null;            //缓动算法<br>  this.duration = null;        //动画持续时间<br>}</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">true<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position:absolute;background:blue"</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>这是测试动画div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Amimate = <span class="function"><span class="keyword">function</span>(<span class="params">dom</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.dom = dom;			<span class="comment">//进行运动的dom节点</span></div><div class="line">true<span class="keyword">this</span>.startTime = <span class="number">0</span>;			<span class="comment">//动画开始时间</span></div><div class="line">true<span class="keyword">this</span>.startPos = <span class="number">0</span>;			<span class="comment">//动画开始时，dom节点的位置，即dom的初始位置</span></div><div class="line">true<span class="keyword">this</span>.endPos = <span class="number">0</span>;			<span class="comment">//动画结束时，dom节点的位置，即dom的目标位置</span></div><div class="line">true<span class="keyword">this</span>.propertyName = <span class="literal">null</span>;	<span class="comment">//dom节点需要被改变的css属性名</span></div><div class="line">true<span class="keyword">this</span>.easing = <span class="literal">null</span>;			<span class="comment">//缓动算法 </span></div><div class="line">true<span class="keyword">this</span>.duration = <span class="literal">null</span>;		<span class="comment">//动画持续时间</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Anitmate.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params">propertyName,endPos,duration,easing</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.startTime = +<span class="keyword">new</span> <span class="built_in">Date</span>;</div><div class="line">true<span class="keyword">this</span>.startPos = <span class="keyword">this</span>.dom.getBoundingClientRect()[propertyName];</div><div class="line">true<span class="keyword">this</span>.endPos = endPos;</div><div class="line">true<span class="keyword">this</span>.duration = duration;</div><div class="line">true<span class="keyword">this</span>.easing = tween[easing];</div><div class="line"></div><div class="line">true<span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">true<span class="keyword">var</span> timeId = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(self.step() === <span class="literal">false</span>)&#123;</div><div class="line">truetruetrueclearInterval(timeId);</div><div class="line">truetrue&#125;</div><div class="line">true&#125;,<span class="number">19</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Animate.prototype.step = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> t = +<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">true<span class="keyword">if</span>(t&gt;=<span class="keyword">this</span>.startTime + <span class="keyword">this</span>.duration)&#123;</div><div class="line">truetrue<span class="keyword">this</span>.update(<span class="keyword">this</span>.endPos);</div><div class="line">truetrue<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">true&#125;</div><div class="line">true<span class="keyword">var</span> pos = <span class="keyword">this</span>.easing(t-<span class="keyword">this</span>.startTime,<span class="keyword">this</span>.startPos,<span class="keyword">this</span>.endPos - <span class="keyword">this</span>.startPos,<span class="keyword">this</span>.duration);</div><div class="line">true<span class="keyword">this</span>.update(pos);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Aniamte.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params">pos</span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.dom.style[<span class="keyword">this</span>.propertyName] = pos+<span class="string">'px'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>我们通常会把算法的含义扩散开来，使策略模式也可以用来封装一系列的“业务规则”。只要这些业务规则指向目标一致，并且可以被替换使用，我们就可以用策略模式来封装它们。</p>
-</blockquote>
-<ul>
-<li><p>使用策略模式检验表单</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> strategies = &#123;</div><div class="line">trueisNonEmpty: <span class="function"><span class="keyword">function</span>(<span class="params">value,errorMsg</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(value === <span class="string">''</span>)&#123;</div><div class="line">truetruetrue<span class="keyword">return</span> errorMsg;</div><div class="line">truetrue&#125;</div><div class="line">true&#125;,</div><div class="line">trueminLength: <span class="function"><span class="keyword">function</span>(<span class="params">value,length,errorMsg</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(value.length &lt; length)&#123;</div><div class="line">truetruetrue<span class="keyword">return</span> errorMsg;</div><div class="line">truetrue&#125;</div><div class="line">true&#125;,</div><div class="line">trueisMobile: <span class="function"><span class="keyword">function</span>(<span class="params">value,errorMsg</span>)</span>&#123;</div><div class="line">truetrue<span class="keyword">if</span>(!<span class="regexp">/(^1[3|5|8|9][0-9]&#123;9&#125;$)/</span>).test(value)&#123;</div><div class="line">truetruetrue<span class="keyword">return</span> errorMsg;</div><div class="line">truetrue&#125;</div><div class="line">true&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//创建一个validator类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Validator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">this</span>.cache = [];</div><div class="line">&#125;</div><div class="line">Validator.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">dom,rules</span>)</span>&#123;</div><div class="line">true<span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">true<span class="keyword">for</span>(vsr i = <span class="number">0</span>,rule;rule = rules[i++];)&#123;</div><div class="line">truetrue(<span class="function"><span class="keyword">function</span>(<span class="params">rule</span>)</span>&#123;</div><div class="line">truetruetrue<span class="keyword">var</span> strategyAry = rule.strategy.split(<span class="string">':'</span>);</div><div class="line">truetruetrue<span class="keyword">var</span> errorMsg = rule.errorMsg;</div><div class="line">truetruetrueself.cache.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">truetruetruetrue<span class="keyword">var</span> strategy = strategyAry.shift();</div><div class="line">truetruetruetruestrategyAry.unshift(dom.value);</div><div class="line">truetruetruetruestrategyAry.push(errorMsg);</div><div class="line">truetruetruetrue<span class="keyword">return</span> strategied[strategy].apply(dom,strategyAry);</div><div class="line">truetruetrue&#125;);</div><div class="line">truetrue&#125;)(rule)</div><div class="line">true&#125;</div><div class="line">&#125;</div><div class="line">Validator.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">true<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,validatorFunc;validatorFunc = <span class="keyword">this</span>.cache[i++];)&#123;</div><div class="line">truetrue<span class="keyword">var</span> msg = validatorFunc();</div><div class="line">truetrue<span class="keyword">if</span>(msg)&#123;</div><div class="line">truetruetrue<span class="keyword">return</span> msg;</div><div class="line">truetrue&#125;</div><div class="line">true&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>策略模式优缺点</p>
-<ul>
+<p>Anitmate.prototype.start = function(propertyName,endPos,duration,easing){<br>    this.startTime = +new Date;<br>    this.startPos = this.dom.getBoundingClientRect()[propertyName];<br>    this.endPos = endPos;<br>    this.duration = duration;<br>    this.easing = tween[easing];</p>
+<pre><code>var self = this;
+var timeId = setInterval(function(){
+    if(self.step() === false){
+        clearInterval(timeId);
+    }
+},19);
+</code></pre><p>};</p>
+<p>Animate.prototype.step = function(){<br>    var t = +new Date();<br>    if(t&gt;=this.startTime + this.duration){<br>        this.update(this.endPos);<br>        return false;<br>    }<br>    var pos = this.easing(t-this.startTime,this.startPos,this.endPos - this.startPos,this.duration);<br>    this.update(pos);<br>}</p>
+<p>Aniamte.prototype.update = function(pos){<br>    this.dom.style[this.propertyName] = pos+’px’;<br>};</p>
+<pre><code>&gt; 我们通常会把算法的含义扩散开来，使策略模式也可以用来封装一系列的“业务规则”。只要这些业务规则指向目标一致，并且可以被替换使用，我们就可以用策略模式来封装它们。
+
+- 使用策略模式检验表单
+```js
+var strategies = {
+    isNonEmpty: function(value,errorMsg){
+        if(value === &#39;&#39;){
+            return errorMsg;
+        }
+    },
+    minLength: function(value,length,errorMsg){
+        if(value.length &lt; length){
+            return errorMsg;
+        }
+    },
+    isMobile: function(value,errorMsg){
+        if(!/(^1[3|5|8|9][0-9]{9}$)/).test(value){
+            return errorMsg;
+        }
+    }
+}
+
+//创建一个validator类
+function Validator(){
+    this.cache = [];
+}
+Validator.prototype.add = function(dom,rules){
+    var self = this;
+    for(vsr i = 0,rule;rule = rules[i++];){
+        (function(rule){
+            var strategyAry = rule.strategy.split(&#39;:&#39;);
+            var errorMsg = rule.errorMsg;
+            self.cache.push(function(){
+                var strategy = strategyAry.shift();
+                strategyAry.unshift(dom.value);
+                strategyAry.push(errorMsg);
+                return strategied[strategy].apply(dom,strategyAry);
+            });
+        })(rule)
+    }
+}
+Validator.prototype.start = function(){
+    for(var i=0,validatorFunc;validatorFunc = this.cache[i++];){
+        var msg = validatorFunc();
+        if(msg){
+            return msg;
+        }
+    }
+}
+</code></pre><ul>
+<li>策略模式优缺点<ul>
 <li>优点<blockquote>
 <p>可以避免很多<code>if-else</code>语句；便于后期的维护和扩展；strategies可复用；</p>
 </blockquote>
@@ -271,9 +387,18 @@
     
 <nav id="article-nav">
   
+    <a href="/blog/2016/10/19/代理模式学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          代理模式学习笔记
+        
+      </div>
+    </a>
   
-    <a href="/blog/2016/10/19/一点小东西/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">知识点记录</div>
+  
+    <a href="/blog/2016/10/14/单例模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">单例模式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +411,7 @@
 <div class="share_jia">
 	<!-- JiaThis Button BEGIN -->
 	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<span class="jiathis_txt">分享到: &nbsp; </span>
 		<a class="jiathis_button_facebook"></a> 
     <a class="jiathis_button_twitter"></a>
     <a class="jiathis_button_plus"></a> 

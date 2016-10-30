@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>单例模式 | Regiondavid&#39;s Blog</title>
+  <title>知识点记录 | Regiondavid&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单例模式学习笔记">
+  <meta name="description" content="记录自己平时学习过程中忽视的或者遗忘的知识点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式">
-<meta property="og:url" content="http://regiondavid.github.io/blog/2016/10/14/单例模式/index.html">
+<meta property="og:title" content="知识点记录">
+<meta property="og:url" content="http://regiondavid.github.io/blog/2016/10/20/一点小东西/index.html">
 <meta property="og:site_name" content="Regiondavid's Blog">
-<meta property="og:description" content="单例模式学习笔记">
-<meta property="og:updated_time" content="2016-10-19T08:51:57.938Z">
+<meta property="og:description" content="记录自己平时学习过程中忽视的或者遗忘的知识点">
+<meta property="og:image" content="http://p1.bpimg.com/1949/bee747d7df63c4da.png">
+<meta property="og:updated_time" content="2016-10-27T08:57:23.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式学习笔记">
+<meta name="twitter:title" content="知识点记录">
+<meta name="twitter:description" content="记录自己平时学习过程中忽视的或者遗忘的知识点">
+<meta name="twitter:image" content="http://p1.bpimg.com/1949/bee747d7df63c4da.png">
   
     <link rel="alternative" href="/atom.xml" title="Regiondavid&#39;s Blog" type="application/atom+xml">
   
@@ -184,11 +186,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-单例模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-一点小东西" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/10/14/单例模式/" class="article-date">
-  	<time datetime="2016-10-14T07:30:00.000Z" itemprop="datePublished">2016-10-14</time>
+      <a href="/blog/2016/10/20/一点小东西/" class="article-date">
+  	<time datetime="2016-10-20T08:30:00.000Z" itemprop="datePublished">2016-10-20</time>
 </a>
     </div>
   
@@ -201,7 +203,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      单例模式
+      知识点记录
     </h1>
   
 
@@ -210,7 +212,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/整理归纳/">整理归纳</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
 	</div>
 
         
@@ -221,102 +223,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单例模式学习笔记<br><a id="more"></a></p>
-<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+        <p>记录自己平时学习过程中忽视的或者遗忘的知识点<br><a id="more"></a></p>
+<h4 id="return-a-amp-amp-b"><a href="#return-a-amp-amp-b" class="headerlink" title="return a &amp;&amp; b;"></a>return a &amp;&amp; b;</h4><p>if(a){<br>    return b;<br>} else return a;</p>
+<h4 id="return-a-b"><a href="#return-a-b" class="headerlink" title="return a || b;"></a>return a || b;</h4><p>if(a){<br>    return a;<br>} else return b;</p>
 <blockquote>
-<p>因为JavaScript本身就是无类的，既然我们只需要一个“唯一”的对象，为什么要先为它创建一个“类”呢？更加需要</p>
+<p>As defined in the method signature, you will have to return a boolean. Therefore, after the return keyword, you will have to provide a boolean or an expression which is evaluated to boolean</p>
+<p>In your case you have the expession (subTree(t1.left, t2) || subTree(t1.right, t2)); in which the two operands will be evaluated to boolean and you will apply an logical OR on them only if the first evaluates to false. If the first operand evaluates to true the second will not be evaluated and true will be retured.</p>
 </blockquote>
-<p>所以单例模式其实更加需要注意的是全局变量的污染。<br>常用在只需要绑定一次的代码或者只生成一个对象上，类似JQ的one</p>
-<ul>
-<li><p>简单demo</p>
-<pre><code class="js">  var Singleton = function(name){
-      this.name = name;
-      this.instance = null;
-  };
-  Singleton.prototype.getName = function(){
-      console.log(this.name);
-  };
-  Singleton.getInstance = function(name){
-      if(!this.instance){
-          this.instance = new Singleton();
-      }
-      return this.instance;
-  };
-  var a = Singleton.getInstance(&#39;sven1&#39;);
-  var b = Singleton.getInstance(&#39;sven2&#39;);
-
-  console.log(a===b);
-</code></pre>
-</li>
-<li>透明的单例模式<pre><code class="js">  var CreateDiv = (function(){
-      var instance;
-      var CreateDiv = function( html){
-          if(instance) {
-              return instance;
-          }
-          this.html = html;
-          this.init();
-          return instance = this;
-      };
-      CreateDiv.prototype.init = function(){
-          var div = document.createElement(&#39;div&#39;);
-          div.innerHTML = this.html;
-          document.body.appendChild(div);
-      };
-      return CreateDiv;
-  })();
-  //用闭包和IIFE封装instance
-  var a = new CreateDiv( &#39;&lt;p&gt;222&lt;/p&gt;&#39;);
-  var b = new CreateDiv( &#39;sven2&#39;);
-  console.log(a===b);
-</code></pre>
-</li>
-<li>用代理实现单例模式<br>把判断是否有instance提取出来，方便createDiv的复用<pre><code class="js">  var CreateDiv = function(html){
-      this.html = html;
-      this.init();
-  };
-  CreateDiv.prototype.init = function(){
-      var div = document.createElement(&#39;div&#39;);
-      div.innerHTML = this.html;
-      document.body.appendChild(div);
-  }
-  var ProxySingletonCreateDiv = (function(){
-      var instance;
-      return function(html){
-          if(!instance){
-              instance = new CreateDiv(html);
-          }
-          return instance;
-      }
-  })();
-  var a = new ProxySingletonCreateDiv(&#39;sven1&#39;);
-  var b = new ProxySingletonCreateDiv(&#39;sven2&#39;);
-  console.log(a===b);
-</code></pre>
-</li>
-<li>惰性单例<blockquote>
-<p>在需要时才创建对象实例</p>
-<pre><code class="js">  Singleton.getInstance = (function(){
-      var instance = null;
-      return function(name){
-          if(!instance){
-              instance = new Singleton(name);
-          }
-          return instance;
-      }
-  })();
-</code></pre>
-<p>将上述代码中的单例判断逻辑抽离出来</p>
-<pre><code class="js">  var getSingle = function(fn){
-      var result;
-      return function(){
-          return result || (result = fn.apply(this,arguments));    
-      }
-  }
-</code></pre>
-</blockquote>
-</li>
+<p>也就是说return是要返回一个布尔值或者能够决定这个表达式布尔值的关键因素</p>
+<p>参考 <a href="http://stackoverflow.com/questions/21556993/java-in-return-statements" target="_blank" rel="external">回答一</a> <a href="http://stackoverflow.com/questions/4490274/returning-with" target="_blank" rel="external">回答二</a> <a href="http://stackoverflow.com/questions/5417969/why-dont-logical-operators-and-always-return-a-boolean-result" target="_blank" rel="external">回答三</a></p>
+<h4 id="String-prototype-split-str"><a href="#String-prototype-split-str" class="headerlink" title="String.prototype.split(str)"></a>String.prototype.split(str)</h4><ul>
+<li>字符串中如果有指定的str字符串，就把原字符串从这个地方截断，并依次存在新数组中再返回</li>
 </ul>
+<p>eg:</p>
+<pre><code class="js">var str1 = &quot;ssxs:xsfas&quot;;str1.split(&quot;:&quot;);//[&quot;ssxs&quot;,&quot;xsfas&quot;]
+</code></pre>
+<ul>
+<li>如果字符串中没有指定str字符串，就会把整个字符串存在一个新数组中再返回<br>eg:</li>
+</ul>
+<pre><code class="js">var str2 = &quot;ageafaefe&quot;;
+str2.split(&quot;:&quot;);
+//[&quot;ageafaefe&quot;]
+</code></pre>
+<ul>
+<li>如果字符串中有不止一个指定的str字符串，那么会在每个符合str字符串的地方截断，依次拼成一个数组再返回<br>eg:<pre><code class="js">var str3 = &quot;qq:ff:gg&quot;;
+str3.split(&quot;:&quot;);
+//[&quot;qq&quot;,&quot;ff&quot;,&quot;gg&quot;]
+</code></pre>
+<h4 id="position-absolute之后，默认不是顶到左上角，而是保持在原来位置"><a href="#position-absolute之后，默认不是顶到左上角，而是保持在原来位置" class="headerlink" title="position:absolute之后，默认不是顶到左上角，而是保持在原来位置"></a><code>position:absolute</code>之后，默认不是顶到左上角，而是保持在原来位置</h4><h4 id="两个-div-都-display-inline-block-之后，中间有间隙"><a href="#两个-div-都-display-inline-block-之后，中间有间隙" class="headerlink" title="两个 div 都 display: inline-block 之后，中间有间隙"></a>两个 div 都 <code>display: inline-block</code> 之后，中间有间隙</h4>此处的空隙就是代码之间的换行符（有说空格符）的空隙</li>
+</ul>
+<h5 id="消除办法"><a href="#消除办法" class="headerlink" title="消除办法"></a>消除办法</h5><ul>
+<li>可以把源代码放到一行去</li>
+<li>把字符设置成0px的大小：<code>font-size:0;</code>  缺点：据说在IE7下有1px的空隙，顺便更正张鑫旭博文中的一点，目前chrome已经支持 <code>font-size:0</code> 了，可以放心使用；</li>
+<li>使用<code>letter-spaceing: -4px;</code> 去设置字符间的间距。至于具体的设置多少还是要去看使用的字体，比如我测试的时候，设置了-10px才起作用。</li>
+</ul>
+<p>参考 <a href="http://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/" target="_blank" rel="external">张鑫旭的这篇文章</a>的第五部分</p>
+<h3 id="第一个div浮动之后，第二个div默认宽度是100-；"><a href="#第一个div浮动之后，第二个div默认宽度是100-；" class="headerlink" title="第一个div浮动之后，第二个div默认宽度是100%；"></a>第一个div浮动之后，第二个div默认宽度是100%；</h3><p>eg:</p>
+<pre><code class="html">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;style&gt;
+    #div1{
+        float:left;
+    }
+    #div2{
+        height: 200px;
+        background-color: red;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>上述代码会出现这种效果<br><img src="http://p1.bpimg.com/1949/bee747d7df63c4da.png" alt="Markdown"><br>因为div的默认宽度都是自适应的100%，而且浮动会创建一个BFC，BFC对外界元素是没有影响的，同时会根据方向紧靠对应的边缘，这就是div1会贴在左边缘的原因，而div2则占据了剩下的所有空间，在二列布局中，我们除了让div2通过 <code>margin-left</code> 的方式去跟div1并列之外，也可以让div2也变成一个BFC，这样就可以并列在一起了，因为BFC不会与浮动盒子叠加。</p>
+<p>另：块级元素默认宽度是100%；只设置高度即可。</p>
+<h4 id="css-中-left、right、top、bottom-的使用"><a href="#css-中-left、right、top、bottom-的使用" class="headerlink" title="css 中 left、right、top、bottom 的使用"></a><code>css</code> 中 <code>left</code>、<code>right</code>、<code>top</code>、<code>bottom</code> 的使用</h4><h4 id="如何遍历一个对象"><a href="#如何遍历一个对象" class="headerlink" title="如何遍历一个对象"></a>如何遍历一个对象</h4><ul>
+<li>Object.keys(obj)</li>
+<li>for-in loop</li>
+<li>map</li>
+</ul>
+<blockquote>
+<p>the difference being that a for-in loop enumerates properties in the prototype chain as well</p>
+</blockquote>
+<p>参考 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank" rel="external">Object.keys</a> , <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys</a></p>
 
       
     </div>
@@ -326,18 +291,18 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/10/19/策略模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/10/22/多种布局的探索/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          策略模式学习笔记
+          多种布局的回顾
         
       </div>
     </a>
   
   
-    <a href="/blog/2016/10/12/设计模式学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式学习笔记</div>
+    <a href="/blog/2016/10/19/代理模式学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">代理模式学习笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -372,7 +337,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="单例模式" data-title="单例模式" data-url="http://regiondavid.github.io/blog/blog/2016/10/14/单例模式/"></div>
+	<div class="ds-thread" data-thread-key="一点小东西" data-title="知识点记录" data-url="http://regiondavid.github.io/blog/blog/2016/10/20/一点小东西/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
