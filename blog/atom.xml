@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://regiondavid.github.io/blog/"/>
-  <updated>2016-10-30T07:43:21.657Z</updated>
+  <updated>2016-11-14T14:06:37.873Z</updated>
   <id>http://regiondavid.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,181 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack对css打包的处理</title>
+    <link href="http://regiondavid.github.io/blog/2016/11/14/webpack%E5%AF%B9css%E6%89%93%E5%8C%85%E7%9A%84%E5%A4%84%E7%90%86/"/>
+    <id>http://regiondavid.github.io/blog/2016/11/14/webpack对css打包的处理/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-14T14:06:37.873Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近被问到了这个问题，当时就懵逼了，特在此做一下笔记。<br><a id="more"></a><br>首先我们都知道webpack作为前端自动化的一种构建工具，其打包能力是非常强的。不仅支持 <code>AMD</code>/<code>CMD</code>，而且还可以把 <code>css</code>（<code>scss</code>/<code>less</code>）、图片等非 <code>js</code>资源打包到一起，功能不可谓不强大。</p>
+<h4 id="首先肯定是如何把-css（scss-less）打包到-js-中去"><a href="#首先肯定是如何把-css（scss-less）打包到-js-中去" class="headerlink" title="首先肯定是如何把 css（scss/less）打包到 js 中去"></a>首先肯定是如何把 <code>css</code>（<code>scss</code>/<code>less</code>）打包到 <code>js</code> 中去</h4><p>这个用过 <code>webpack</code> 的应该都有所了解。在 <code>webpack.config.js</code> 中的 <code>loaders</code> 里去添加</p>
+<pre><code class="js">{
+    test: /\.css$/,
+    loaders: [&#39;style&#39;,&#39;css&#39;]
+}
+</code></pre>
+<p>这样我们的 <code>js</code> 就会把这个 <code>css</code> 打包进去了。</p>
+<h4 id="打包后的-css-是如何存在于-js-中啊"><a href="#打包后的-css-是如何存在于-js-中啊" class="headerlink" title="打包后的 css 是如何存在于 js 中啊"></a>打包后的 <code>css</code> 是如何存在于 <code>js</code> 中啊</h4><p>为此我特意找到原来的代码，扒了一下后，找到了这个</p>
+<p><img src="http://p1.bpimg.com/1949/9f942ddf0851d46c.png" alt="Markdown"></p>
+<p>可以看到我们的 <code>css</code> 代码以字符串的形式被存储了起来，并且有对应的 <code>module.id</code>，并最后输出出去</p>
+<h4 id="那这段代码又是如何起作用的呢"><a href="#那这段代码又是如何起作用的呢" class="headerlink" title="那这段代码又是如何起作用的呢"></a>那这段代码又是如何起作用的呢</h4><p>这就回到了我们最开始的问题。当时我的想法是通过检测对应的 <code>id/class</code>，添加到对应元素的属性里。现在想来这种想法想的过于理想了，首先性能就是个问题，而且这样就体现不出来模块化的思想了。</p>
+<p>要解决这个问题的话，还是得看 <code>webpack</code> 对处理 <code>css</code> 用到的两个 <code>loader</code>。我们一个一个来看。</p>
+<p>首先是 <code>css-loader</code>。这是我在 <a href="https://www.npmjs.com/package/css-loader" target="_blank" rel="external">https://www.npmjs.com/package/css-loader</a> 中找到的用处</p>
+<blockquote>
+<h5 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h5><p>var css = require(“css!./file.css”);</p>
+<p>// =&gt; returns css code from file.css, resolves imports and url(…)</p>
+<p>@import and url(…) are interpreted like require() and will be resolved by the css-loader. Good loaders for requiring your assets are the file-loader and the url-loader which you should specify in your config (see below).</p>
+<p>To be compatible with existing css files (if not in CSS Module mode):</p>
+<p>url(image.png) =&gt; require(“./image.png”)</p>
+<p>url(~module/image.png) =&gt; require(“module/image.png”)</p>
+</blockquote>
+<p>大体意思就是说将 <code>css</code>代码从引入的 <code>css</code> 文件中引出来，同时还会解析引入 <code>css</code> 中会遇到的一些 <code>url</code> 和 <code>import</code> ，把它们解析成 <code>require(...)</code> 的形式。</p>
+<p>然后是 <code>style-loader</code>，这是 <a href="https://github.com/webpack/style-loader" target="_blank" rel="external">https://github.com/webpack/style-loader</a> 上给出的作用。</p>
+<blockquote>
+<p>Adds CSS to the DOM by injecting a ‘style’ tag</p>
+</blockquote>
+<p>十分的简介明了，就是把解析出来的 <code>css</code> 代码通过在页面中插入一个 <code>style</code> 标签来处理。这也是我们为什么在 <code>loaders</code> 里先写 <code>style</code> 后写 <code>css</code> 的原因，这里要注意 <code>webpack</code> 加载这些 <code>loaders</code> 的时候，是按照从右往左的顺序去加载的。</p>
+<p>至此，这个问题也是终于有了答案，<code>webpack</code> 先通过 <code>css-loader</code> 去取出 <code>css</code>代码，然后通过 <code>style-loader</code> 去把这些代码通过封装到一个 <code>style</code> 标签里然后添加到对应页面上。而把 <code>css</code> 打包到 <code>js</code> 里面的一个很重要的好处就是减少请求的数量，毕竟一个请求一寸金啊（滑稽</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近被问到了这个问题，当时就懵逼了，特在此做一下笔记。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://regiondavid.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="note" scheme="http://regiondavid.github.io/blog/tags/note/"/>
+    
+      <category term="webpack" scheme="http://regiondavid.github.io/blog/tags/webpack/"/>
+    
+      <category term="模块化" scheme="http://regiondavid.github.io/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>作用域及闭包学习笔记</title>
+    <link href="http://regiondavid.github.io/blog/2016/11/09/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8F%8A%E9%97%AD%E5%8C%85%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://regiondavid.github.io/blog/2016/11/09/作用域及闭包学习笔记/</id>
+    <published>2016-11-08T16:00:00.000Z</published>
+    <updated>2016-11-10T09:22:33.378Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。<br><a id="more"></a></p>
+<h4 id="编译器的作用之一——解析抽象语法树"><a href="#编译器的作用之一——解析抽象语法树" class="headerlink" title="编译器的作用之一——解析抽象语法树"></a>编译器的作用之一——解析抽象语法树</h4><p>根节点为VariableDeclaration，第一个子节点为Identifire，用来记录变量的名称；第二个子节点为AssignmentExpression，这个子节点会生成一个子节点，叫NumericLiteral，来存储对应变量的值。</p>
+<h4 id="编译器对变量声明的处理"><a href="#编译器对变量声明的处理" class="headerlink" title="编译器对变量声明的处理"></a>编译器对变量声明的处理</h4><p>先在作用域内查询是否有同名的变量：如果存在，则忽略声明，继续执行；如果不存在，则分配内存去生成一个新变量</p>
+<h4 id="对变量赋值的处理"><a href="#对变量赋值的处理" class="headerlink" title="对变量赋值的处理"></a>对变量赋值的处理</h4><p>先在作用域内查询是否有这个变量，如果有，则进行赋值操作，如果没有，则继续向上层去寻找，直到找到位置，如果一直到全局作用域都没有找到的话，则会报错。</p>
+<h4 id="搜索变量"><a href="#搜索变量" class="headerlink" title="搜索变量"></a>搜索变量</h4><p>两种查询的方式，一种是LHS，目的是找到包含对应目标的容器，常用在赋值操作的左侧，如<code>a=2</code>；而另一种是RHS，目的是找到对应目标的确切的值，常用语引用该变量的时候，如<code>console.log(a)</code>。</p>
+<blockquote>
+<p>容易忽略的一个细节：</p>
+<pre><code class="js">function foo(a){
+    console.log(a);
+}
+foo(2);
+</code></pre>
+<p>在把2作为一个参数传给函数时，会需要进行一次LHS，从而给a赋值为2。这个函数内部的执行，会对a进行一次RHS操作，然后对console这个对象进行RHS，查询是否有log这个方法。</p>
+</blockquote>
+<p>如果之前没有定义过某个变量，对其赋值，会使那个变量成为一个全局变量。</p>
+<p>因为在赋值的时候，对赋值左侧进行的是LHS，在非严格模式下，如果都没有找到这个变量，全局作用域会生成一个。</p>
+<h4 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h4><p>作用域分为两类，一类是词法作用域，js也是采用的这种；而另一种则是动态作用域，如Bash脚本或Perl。</p>
+<p>词法作用域就是根据词法化后定义在词法阶段的作用域。</p>
+<pre><code class="js">function foo(a){
+    var b = a*2;
+    function bar(c){
+        console.log(a,b,c);
+    }
+    bar(b*3);
+}
+foo(2)
+</code></pre>
+<p>这个例子中创建了三个作用域：第一个为全局作用域，标识符为foo，第二个foo创建的作用域，标识符为a,b,bar；第三个是bar创建的作用域，标识符为c。函数的作用域包含该函数的参数。</p>
+<blockquote>
+<p>没有任何函数可以部分地同时出现在两个父级函数中。</p>
+<p>无论函数在哪里被调用，也无论它如何被调用，它的词法作用域只由函数被声明时所处的位置决定</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="note" scheme="http://regiondavid.github.io/blog/tags/note/"/>
+    
+      <category term="js基础" scheme="http://regiondavid.github.io/blog/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="作用域" scheme="http://regiondavid.github.io/blog/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+      <category term="闭包" scheme="http://regiondavid.github.io/blog/tags/%E9%97%AD%E5%8C%85/"/>
+    
+      <category term="你不知道的JS" scheme="http://regiondavid.github.io/blog/tags/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS再学习笔记</title>
+    <link href="http://regiondavid.github.io/blog/2016/11/07/js-basic-note/"/>
+    <id>http://regiondavid.github.io/blog/2016/11/07/js-basic-note/</id>
+    <published>2016-11-06T16:00:00.000Z</published>
+    <updated>2016-11-14T14:07:16.148Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>js</code> 复习笔记<br><a id="more"></a></p>
+<h2 id="JS再学习笔记"><a href="#JS再学习笔记" class="headerlink" title="JS再学习笔记"></a>JS再学习笔记</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>先摆结果</p>
+<h4 id="基本数据类型（简单数据类型）-–-5种"><a href="#基本数据类型（简单数据类型）-–-5种" class="headerlink" title="基本数据类型（简单数据类型） – 5种"></a>基本数据类型（简单数据类型） – 5种</h4><ul>
+<li>Null</li>
+<li>undefined</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+</ul>
+<h4 id="复杂数据类型-–-1种"><a href="#复杂数据类型-–-1种" class="headerlink" title="复杂数据类型 – 1种"></a>复杂数据类型 – 1种</h4><ul>
+<li>Object</li>
+</ul>
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><ul>
+<li>Object</li>
+<li>Array</li>
+<li>Date</li>
+<li>RegExp</li>
+<li>Function</li>
+<li>基本包装类型<ul>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+</ul>
+</li>
+<li>单体内置对象<ul>
+<li>Global</li>
+<li>Math<br>产品线</li>
+</ul>
+</li>
+</ul>
+<p>再提问题</p>
+<blockquote>
+<p>基本数据类型、复杂数据类型、引用数据类型、包装数据类型这些是怎样区分的</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;js&lt;/code&gt; 复习笔记&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="note" scheme="http://regiondavid.github.io/blog/tags/note/"/>
+    
+      <category term="js" scheme="http://regiondavid.github.io/blog/tags/js/"/>
+    
+      <category term="js基础" scheme="http://regiondavid.github.io/blog/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="js高级程序设计" scheme="http://regiondavid.github.io/blog/tags/js%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Atom配置记录</title>

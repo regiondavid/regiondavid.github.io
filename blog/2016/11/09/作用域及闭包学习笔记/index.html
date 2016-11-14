@@ -4,26 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>盒模型的科普及一点小探索 | Regiondavid&#39;s Blog</title>
+  <title>作用域及闭包学习笔记 | Regiondavid&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="盒模型的科普及一点小探索">
+  <meta name="description" content="最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盒模型的科普及一点小探索">
-<meta property="og:url" content="http://regiondavid.github.io/blog/2016/07/13/blog1/index.html">
+<meta property="og:title" content="作用域及闭包学习笔记">
+<meta property="og:url" content="http://regiondavid.github.io/blog/2016/11/09/作用域及闭包学习笔记/index.html">
 <meta property="og:site_name" content="Regiondavid's Blog">
-<meta property="og:description" content="盒模型的科普及一点小探索">
-<meta property="og:image" content="http://www.w3school.com.cn/i/ct_boxmodel.gif">
-<meta property="og:image" content="http://i4.piimg.com/4851/50f5caa366cd86c5.png">
-<meta property="og:image" content="http://i2.piimg.com/4851/aeeee223f73c2a76.png">
-<meta property="og:image" content="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg">
-<meta property="og:image" content="http://i2.piimg.com/4851/86e535e23ba2bb32.png">
-<meta property="og:image" content="http://i2.piimg.com/4851/e5299204e93b1362.png">
-<meta property="og:image" content="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg">
-<meta property="og:updated_time" content="2016-07-30T14:09:42.054Z">
+<meta property="og:description" content="最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。">
+<meta property="og:updated_time" content="2016-11-10T09:22:33.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盒模型的科普及一点小探索">
-<meta name="twitter:description" content="盒模型的科普及一点小探索">
-<meta name="twitter:image" content="http://www.w3school.com.cn/i/ct_boxmodel.gif">
+<meta name="twitter:title" content="作用域及闭包学习笔记">
+<meta name="twitter:description" content="最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。">
   
     <link rel="alternative" href="/atom.xml" title="Regiondavid&#39;s Blog" type="application/atom+xml">
   
@@ -192,11 +184,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-blog1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-作用域及闭包学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/07/13/blog1/" class="article-date">
-  	<time datetime="2016-07-13T13:41:44.000Z" itemprop="datePublished">2016-07-13</time>
+      <a href="/blog/2016/11/09/作用域及闭包学习笔记/" class="article-date">
+  	<time datetime="2016-11-08T16:00:00.000Z" itemprop="datePublished">2016-11-09</time>
 </a>
     </div>
   
@@ -209,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      盒模型的科普及一点小探索
+      作用域及闭包学习笔记
     </h1>
   
 
@@ -217,11 +209,11 @@
       
       <div class="article-info article-info-post">
         
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/前端/">前端</a>
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js基础/">js基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/note/">note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/作用域/">作用域</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/你不知道的JS/">你不知道的JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/闭包/">闭包</a></li></ul>
 	</div>
 
+        
 
         <div class="clearfix"></div>
       </div>
@@ -229,52 +221,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>盒模型的科普及一点小探索<br><a id="more"></a></p>
-<h3 id="什么是盒模型？"><a href="#什么是盒模型？" class="headerlink" title="什么是盒模型？"></a>什么是盒模型？</h3><p>根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" target="_blank" rel="external">MDN上的解释</a></p>
+        <p>最近面试，在作用域和闭包这个地方出现了挺多问题，正好借此机会好好学习一下。<br><a id="more"></a></p>
+<h4 id="编译器的作用之一——解析抽象语法树"><a href="#编译器的作用之一——解析抽象语法树" class="headerlink" title="编译器的作用之一——解析抽象语法树"></a>编译器的作用之一——解析抽象语法树</h4><p>根节点为VariableDeclaration，第一个子节点为Identifire，用来记录变量的名称；第二个子节点为AssignmentExpression，这个子节点会生成一个子节点，叫NumericLiteral，来存储对应变量的值。</p>
+<h4 id="编译器对变量声明的处理"><a href="#编译器对变量声明的处理" class="headerlink" title="编译器对变量声明的处理"></a>编译器对变量声明的处理</h4><p>先在作用域内查询是否有同名的变量：如果存在，则忽略声明，继续执行；如果不存在，则分配内存去生成一个新变量</p>
+<h4 id="对变量赋值的处理"><a href="#对变量赋值的处理" class="headerlink" title="对变量赋值的处理"></a>对变量赋值的处理</h4><p>先在作用域内查询是否有这个变量，如果有，则进行赋值操作，如果没有，则继续向上层去寻找，直到找到位置，如果一直到全局作用域都没有找到的话，则会报错。</p>
+<h4 id="搜索变量"><a href="#搜索变量" class="headerlink" title="搜索变量"></a>搜索变量</h4><p>两种查询的方式，一种是LHS，目的是找到包含对应目标的容器，常用在赋值操作的左侧，如<code>a=2</code>；而另一种是RHS，目的是找到对应目标的确切的值，常用语引用该变量的时候，如<code>console.log(a)</code>。</p>
 <blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。 </p>
+<p>容易忽略的一个细节：</p>
+<pre><code class="js">function foo(a){
+    console.log(a);
+}
+foo(2);
+</code></pre>
+<p>在把2作为一个参数传给函数时，会需要进行一次LHS，从而给a赋值为2。这个函数内部的执行，会对a进行一次RHS操作，然后对console这个对象进行RHS，查询是否有log这个方法。</p>
 </blockquote>
-<p>可以看出盒模型就像它的名字那样，指的就是一个矩形盒子，但是这个盒子有外边距、内边距、边框和内容区域。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_boxmodel.gif" alt="盒模型"></p>
-<p>从图可以看出，我们平时所定义的 width 和 height 都是对应的内容区域，但是当我们在布局的时候，则是依照盒模型的尺寸去进行布局。所以在最后计算的时候：<code>盒模型的宽度 = margin 的宽度 + padding 的宽度 + border 的宽度 + 内容区域的宽度</code>。<br>似乎将 padding 和 border 也计算在宽度里不大符合我们常人的思维，IE 也是这么想的。所以在 IE 下和其他浏览器下计算的尺寸是不一样的。对此，css3 提出了 box-sizing 这个属性。box-sizing 有两个可选值，一个是默认的 content-box，另一个就是 border-box。当把 box-sizing 设置为 content-box 的时候，计算尺寸就把所有的都加起来；当设置为 border-box 时，就类似IE的计算方法，将 padding 和 border 算在 width 和 height 里。掌握这些基础对页面的布局有着非常好的帮助。</p>
-<h3 id="一点有趣的探索"><a href="#一点有趣的探索" class="headerlink" title="一点有趣的探索"></a>一点有趣的探索</h3><pre><code class="html">    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
-    &lt;style type=&quot;text/css&quot;&gt;
-        #div1{
-            width:500px;
-             height: 300px;
-            background-color: green;
-        }
-        #div2{
-            width:300px;
-             height: 100px;
-            background-color: blue;
-        }
-    &lt;/style&gt;
-</code></pre>
-<p>这是最初的样子<img src="http://i4.piimg.com/4851/50f5caa366cd86c5.png" alt="test1"><br>当我把css稍作修改</p>
-<pre><code class="css">    #div2{
-      padding-top:50px;
-      width:300px;
-      height: 100px;
-      background-color: blue;
+<p>如果之前没有定义过某个变量，对其赋值，会使那个变量成为一个全局变量。</p>
+<p>因为在赋值的时候，对赋值左侧进行的是LHS，在非严格模式下，如果都没有找到这个变量，全局作用域会生成一个。</p>
+<h4 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h4><p>作用域分为两类，一类是词法作用域，js也是采用的这种；而另一种则是动态作用域，如Bash脚本或Perl。</p>
+<p>词法作用域就是根据词法化后定义在词法阶段的作用域。</p>
+<pre><code class="js">function foo(a){
+    var b = a*2;
+    function bar(c){
+        console.log(a,b,c);
     }
+    bar(b*3);
+}
+foo(2)
 </code></pre>
-<p>结果变成了这个样子。。。<br><img src="http://i2.piimg.com/4851/aeeee223f73c2a76.png" alt="test2"><br><img src="http://www.18183.com/uploads/150805/41-150P51Q24Q15.jpg" alt="什么鬼">，div2咋还变长了？<br>于是我开始了探索(<del>瞎折腾</del>)<br>首先在div中添加几个字，看看content区域有没有变，内容区域果然正常<img src="http://i2.piimg.com/4851/86e535e23ba2bb32.png" alt="test3"><br>可以很明显对比看到内容区域向下移动了50px的距离，但是为什么内容的上方仍然是蓝色呢？<br>还记得我们开头的话吗？</p>
+<p>这个例子中创建了三个作用域：第一个为全局作用域，标识符为foo，第二个foo创建的作用域，标识符为a,b,bar；第三个是bar创建的作用域，标识符为c。函数的作用域包含该函数的参数。</p>
 <blockquote>
-<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。</p>
+<p>没有任何函数可以部分地同时出现在两个父级函数中。</p>
+<p>无论函数在哪里被调用，也无论它如何被调用，它的词法作用域只由函数被声明时所处的位置决定</p>
 </blockquote>
-<p>而这里渲染的背景颜色就是基于盒模型去渲染的，它会把padding部分和content部分都去渲染上背景色。<br>那么问题又来了，如果再设置margin属性，背景色会不会也渲染上呢？</p>
-<pre><code class="css">    #div2{
-      margin-top:50px;
-      padding-top:50px;
-      width:300px;
-      height: 100px;
-      background-color: blue;
-    }
-</code></pre>
-<p>渲染出来的结果竟然是<img src="http://i2.piimg.com/4851/e5299204e93b1362.png" alt="test4"><br>结果div2的背景色不仅没有变化，div1上边竟然还多出一块空白的？！<br><img src="http://easyread.ph.126.net/4r1X30AHvtnDORiKVCvsHw==/7916690428175172728.jpg" alt="WTF"></p>
-<p>这他喵的是咋回事？</p>
-<p>预知后事如何，且听下回分解</p>
 
       
     </div>
@@ -284,15 +262,20 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/07/19/blog2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/11/14/webpack对css打包的处理/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          盒模型的继续探索——margin属性
+          webpack对css打包的处理
         
       </div>
     </a>
   
+  
+    <a href="/blog/2016/11/07/js-basic-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS再学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -325,7 +308,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="blog1" data-title="盒模型的科普及一点小探索" data-url="http://regiondavid.github.io/blog/blog/2016/07/13/blog1/"></div>
+	<div class="ds-thread" data-thread-key="作用域及闭包学习笔记" data-title="作用域及闭包学习笔记" data-url="http://regiondavid.github.io/blog/blog/2016/11/09/作用域及闭包学习笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

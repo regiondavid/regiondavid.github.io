@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://regiondavid.github.io/blog/blog/2016/11/07/js-basic-note/</loc>
+    
+    <lastmod>2016-11-14T14:07:16.148Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://regiondavid.github.io/blog/blog/2016/11/14/webpack%E5%AF%B9css%E6%89%93%E5%8C%85%E7%9A%84%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2016-11-14T14:06:37.873Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://regiondavid.github.io/blog/blog/2016/11/09/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8F%8A%E9%97%AD%E5%8C%85%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2016-11-10T09:22:33.378Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://regiondavid.github.io/blog/blog/2016/10/30/ATOM%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2016-10-30T07:43:21.657Z</lastmod>
