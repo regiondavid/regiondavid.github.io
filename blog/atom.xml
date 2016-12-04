@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://regiondavid.github.io/blog/"/>
-  <updated>2016-11-14T14:06:37.873Z</updated>
+  <updated>2016-12-04T13:49:25.560Z</updated>
   <id>http://regiondavid.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,148 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>来上海一周记</title>
+    <link href="http://regiondavid.github.io/blog/2016/12/04/%E6%9D%A5%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%AE%B0/"/>
+    <id>http://regiondavid.github.io/blog/2016/12/04/来上海一周记/</id>
+    <published>2016-12-03T16:00:00.000Z</published>
+    <updated>2016-12-04T13:49:25.560Z</updated>
+    
+    <content type="html"><![CDATA[<p>转眼间来上海已经一周了，就写一写吧，也当做对上一周的一些反思，尽量保持每周一篇<br><a id="more"></a></p>
+<h4 id="终于还是出来了。"><a href="#终于还是出来了。" class="headerlink" title="终于还是出来了。"></a>终于还是出来了。</h4><p>在经历了接近一个月的找实习与准备中终于还是出来了。记得当时还是因为看见了魏巅峰发的那个百度地图车的实习广告，然后又被王老师一阵忽悠着一起写简历投简历，就开始了几经风波的找实习过程。</p>
+<p>现在再去看那段时间，就感觉有两句话总结的太™的对了</p>
+<blockquote>
+<p>生活最不缺的就是幽默，生活最有意思的就是阴差阳错</p>
+</blockquote>
+<p>还有那句中国的老话：</p>
+<blockquote>
+<p>有心栽花花不开，无心插柳柳成荫</p>
+</blockquote>
+<p>阴差阳错，机缘巧合下我来到了魔都。</p>
+<p>从确定要走到最后的出发其实只有一周的时间，感觉走得挺匆忙的，走之前那一周也是啥也看不进去，有点激动又有点慌张，只是把磨锤子课的实验报告给写了，剩下及以后的就交给队友们了2333。</p>
+<p>一路恍惚中就来到了上海，住进了早在v2ex上找好的房子里，一顿买买买（顺便吐槽一下上海的物价）之后，周一就去报道了。</p>
+<h4 id="初进公司"><a href="#初进公司" class="headerlink" title="初进公司"></a>初进公司</h4><p>感觉确实跟一切不一样了，以前在工作室待一天可能比较随意一些，想干什么就干些什么，也能随便跟老师们一起吹吹逼。环境跟想象中又有些不同，但也挺满意的。有零食有饮料有加班餐，而且印象最深的就是这的氛围，讨论交流特别多，经常能看到有人抱着电脑到处去问，而且因为团队人数不是特别多，所以管理比较扁平化，leaders也经常跟工程师们在一起交流。整体的包括工作管理等个人感觉也挺专业的。</p>
+<h4 id="自我的反思"><a href="#自我的反思" class="headerlink" title="自我的反思"></a>自我的反思</h4><ul>
+<li>懒散<br>感觉又进入了传说中的技术舒适区了，缺乏紧迫感，其实从正式拿到offer之后就开始了，一直没调整过来。可能从下周开始任务多起来会好转吧。感觉也要做一下个人的规划了，要不周末的大好时间又浪费掉了。</li>
+<li>社交懒惰放不开<br>在这一周的交流实在不多，就连跟mentor都没有太多的交流，一方面确实是人认不全，又担心打扰别人，另一方面就是自己太懒，不肯主动去问去学。适应新环境慢确实也是自己一直以来的问题，这个只能靠时间去解决了，自己也去慢慢学习别人的交流方式。</li>
+</ul>
+<p>愿下周会变得更好！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转眼间来上海已经一周了，就写一写吧，也当做对上一周的一些反思，尽量保持每周一篇&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://regiondavid.github.io/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="上海" scheme="http://regiondavid.github.io/blog/tags/%E4%B8%8A%E6%B5%B7/"/>
+    
+      <category term="周记" scheme="http://regiondavid.github.io/blog/tags/%E5%91%A8%E8%AE%B0/"/>
+    
+      <category term="生活" scheme="http://regiondavid.github.io/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发布-订阅模式 学习笔记</title>
+    <link href="http://regiondavid.github.io/blog/2016/11/22/%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://regiondavid.github.io/blog/2016/11/22/发布-订阅模式/</id>
+    <published>2016-11-21T16:00:00.000Z</published>
+    <updated>2016-12-04T03:41:18.075Z</updated>
+    
+    <content type="html"><![CDATA[<p>发布-订阅模式（观察者模式）学习笔记<br><a id="more"></a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>通过定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。</p>
+<blockquote>
+<p>在 <code>js</code> 中，常用事件模型来代替传统的 <code>发布-订阅模式</code></p>
+</blockquote>
+<h3 id="DOM-事件"><a href="#DOM-事件" class="headerlink" title="DOM 事件"></a><code>DOM</code> 事件</h3><p>在原生 <code>js</code> 中，我们其实已经接触过了 <code>发布-订阅模式</code> – <code>addEventListener</code></p>
+<p>eg: <code>document.body.addEventListener(&#39;click&#39;,function(){console.log(233);},false)</code></p>
+<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><h5 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h5><ul>
+<li>制定发布者</li>
+<li>为发布者添加缓存队列，用于存放回调函数</li>
+<li>当要发布消息的时候，就会遍历整个缓存列表，依次触发对应的回调函数</li>
+</ul>
+<h5 id="一个栗子"><a href="#一个栗子" class="headerlink" title="一个栗子"></a>一个栗子</h5><pre><code class="js">var salesOffices = {};
+salesOffices.clientList = [];
+salesOffices.listen = function(fn){
+    this.clientList.push(fn);
+};
+salesOffices.trigger = function(){
+    for(var i = 0, fn; fn = this.clientList[i++];){
+        fn.apply(this, arguments);
+    }
+};
+</code></pre>
+<p>进行测试</p>
+<pre><code class="js">salesOffices.listen(function(price, squareMeter){
+    console.log(&#39;userA&#39;);
+    console.log(&#39;价格=&#39;+price);
+    console.log(&#39;面积=&#39;+squareMeter);
+});
+salesOffices.listen(function(price, squareMeter){
+    console.log(&#39;userB&#39;);
+    console.log(&#39;价格=&#39;+price);
+    console.log(&#39;面积=&#39;+squareMeter);
+});
+
+salesOffices.trigger(200000,88);
+//userA
+//价格=200000
+//面积=88
+//userB
+//价格=200000
+//面积=88
+//undefined
+</code></pre>
+<h5 id="稍作改进"><a href="#稍作改进" class="headerlink" title="稍作改进"></a>稍作改进</h5><p>在原基础上添加一些限制条件，使得接收者只获取自己想要的信息。</p>
+<pre><code class="js">var salesOffices = {};
+salesOffices.clientList = {};
+salesOffices.listen = function(key, fn){
+    if(!this.clientList[key]){
+        this.clientList[key] = [];
+    }
+    this.clientList[key].push(fn);
+};
+salesOffices.trigger = function(){
+    var key = Array.prototype.shift.call(arguments),
+        fns = this.clientList[key];
+    if(!fns || fns.length === 0){
+        return false;
+    }
+    for(var i = 0, fn; fn = fns[i++];){
+        fn.apply(this, arguments);
+    }
+};
+</code></pre>
+<p>进行测试</p>
+<pre><code class="js">salesOffices.listen(&#39;squareMeter88&#39;, function(price){
+    console.log(&#39;价格=&#39; + price);
+    console.log(&#39;squareMeter88&#39;);
+});
+salesOffices.listen(&#39;squareMeter110&#39;, function(price))
+</code></pre>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发布-订阅模式（观察者模式）学习笔记&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://regiondavid.github.io/blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="设计模式" scheme="http://regiondavid.github.io/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="note" scheme="http://regiondavid.github.io/blog/tags/note/"/>
+    
+      <category term="发布-订阅模式" scheme="http://regiondavid.github.io/blog/tags/%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack对css打包的处理</title>
